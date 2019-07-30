@@ -88,9 +88,19 @@ def get_answer(message_text):
 @handler.add(MessageEvent, message=TextMessage)
 
 def handle_message(event):
-    answer = get_answer(event.message.text)
-    line_bot_api.reply_message(event.reply_token,
-    TextSendMessage(text=answer))
+    print("event.reply_token:", event.reply_token)
+    print("event.source.user_id:", event.source.user_id)
+    print("event.message.text:", event.message.text)
+    print("event.source.type:", event.source.type)
+    msg = get_answer(event.message.text)
+    if msg = "No good match found in KB." :
+        if msg = "aaa"
+             content = "哈囉"
+            line_bot_api.reply_message(event.reply_token,TextSendMessage(text=content))
+            return 0
+    else:
+        line_bot_api.reply_message(event.reply_token,TextSendMessage(text=msg))
+        return 0
 
 
 if __name__ == '__main__':
