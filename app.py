@@ -73,7 +73,7 @@ def static_proxy(path):
 
 @handler.add(MessageEvent, message=TextMessage)  # default
 def get_answer(message_text):
-    url = "https://chevadymeowbotqna.azurewebsites.net/qnamaker"
+    url = "https://chevadymeowbotqna.azurewebsites.net/qnamaker/knowledgebases/4535ecb8-21ee-42c6-90a4-5b2529a710c4/generateAnswer"
 # 發送request到QnAMaker Endpoint要答案
     response = requests.post(
         url,
