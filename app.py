@@ -94,8 +94,8 @@ def handle_message(event):
     print("event.source.type:", event.source.type)
     msg = get_answer(event.message.text)
     if msg == "No good match found in KB." :
-        if msg = "aaa"
-            content == "哈囉"
+        if msg == "aaa"
+            content = "哈囉"
             line_bot_api.reply_message(event.reply_token,TextSendMessage(text=content))
             return 0
     else:
