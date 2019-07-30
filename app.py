@@ -72,7 +72,35 @@ def static_proxy(path):
 
 
 @handler.add(MessageEvent, message=TextMessage)  # default
+
+def get_answer(message_text):
+    
+    url = "https://chevadymeowbotqna.azurewebsites.net/qnamaker"
+# 發送request到QnAMaker Endpoint要答案
+    response = requests.post(
+                   url,
+                   json.dumps({'question': message_text}),
+                   headers={
+                       'Content-Type': 'application/json',
+                       'Authorization': 'EndpointKey 9b2c32d0-31e2-469b-8ed8-4ad1c93ad90d'
+                   }
+               )
+    data = response.json()
+    try: 
+        #我們使用免費service可能會超過限制（一秒可以發的request數）
+        if "error" in data:
+            return data["error"]["message"]
+        #這裡我們預設取第一個答案
+        answer = data['answers'][0]['answer']
+    return answer
+    except Exception:
+    return "Error occurs when finding answer"
+
+
 def handle_message(event):                  # default
+    msg = get_answer(event.message.text)
+    line_bot_api.reply_message(event.reply_token,
+    TextSendMessage(text=answer))
     print("event.reply_token:", event.reply_token)
     print("event.source.user_id:", event.source.user_id)
     print("event.message.text:", event.message.id)
