@@ -29,31 +29,12 @@ from linebot.models import *
 
 app = Flask(__name__)
 
-''' ### broke
-### hidden in Heroku Config Vars
-ACCESS_TOKEN = os.environ.get('ACCESS_TOKEN')
-SECRET = os.environ.get('SECRET')
-DIALOGFLOW_CLIENT_ACCESS_TOKEN = os.environ.get('DIALOGFLOW_CLIENT_ACCESS_TOKEN')
-print(ACCESS_TOKEN)
-print(SECRET)
-print(GOOGLE_API_KEY)
-print(DIALOGFLOW_CLIENT_ACCESS_TOKEN)
-
-ai = apiai.ApiAI(DIALOGFLOW_CLIENT_ACCESS_TOKEN)
-line_bot_api = LineBotApi(ACCESS_TOKEN)
-handler = WebhookHandler(SECRET)
-'''
-
 ### another way using config.ini
 config = configparser.ConfigParser()
 config.read("config.ini")
 
 line_bot_api = LineBotApi(config['line_bot']['Channel_Access_Token'])
 handler = WebhookHandler(config['line_bot']['Channel_Secret'])
-ai = apiai.ApiAI(config['Dialogflow']['DIALOGFLOW_CLIENT_ACCESS_TOKEN'])
-
-
-
 static_tmp_path = os.path.join(os.path.dirname(__file__), 'static')
 
 
@@ -75,19 +56,6 @@ def callback():
         abort(400)
 
     return 'ok'
-
-# ================= 語言客製區 Start =================
-def is_alphabet(uchar):
-    if ('\u0041' <= uchar<='\u005a') or ('\u0061' <= uchar<='\u007a'):
-        print('English')
-        return "en"
-    elif '\u4e00' <= uchar<='\u9fff':
-        #print('Chinese')
-        print('Chinese')
-        return "zh-tw"
-    else:
-        return "en"
-# ================= 語言客製區 End =================
 
 
 
@@ -114,39 +82,10 @@ def handle_message(event):                  # default
     #print(msg)
     #print(uid)
     
-    # 1. 傳送使用者輸入到 dialogflow 上
-    ai_request = ai.text_request()
-    #ai_request.lang = "en"
-    ai_request.lang = is_alphabet(msg)
-    ai_request.session_id = uid
-    ai_request.query = msg
-    #print(ai_request.lang)
-    #print(ai_request.session_id)
-    #print(ai_request.query)
-    
-    # 2. 獲得使用者的意圖
-    ai_response = json.loads(ai_request.getresponse().read())
-    try:
-        user_intent = ai_response['result']['metadata']['intentName']
-        print (user_intent)
-    except:
-        user_intent = "unknown"
-        print (user_intent)
-    try:
-        response = ai_response['result']['fulfillment']['speech']
-        print (response)
-    except:
-        response = "response unknown"
-        print (response)        
-    
-    
-    #user_intent = ai_response['result']['metadata']['intentName']
-    #print (user_intent)
-    #response = ai_response['result']['fulfillment']['speech']
-    #print (response)
+ 
 
     # 3. 根據使用者的意圖做相對應的回答
-    if user_intent == "WhatToEat": # 當使用者意圖為詢問午餐時
+    if msg == "aaa": # 當使用者意圖為aaa時
         # 建立一個 button 的 template
         msg = str(response)
         line_bot_api.reply_message(
@@ -154,52 +93,17 @@ def handle_message(event):                  # default
             TextSendMessage(text=msg))
         return 0
 
-    elif user_intent == "WhatToPlay": # 當使用者意圖為詢問遊戲時
-        msg = str(response)
+    elif msg == "WhatToPlay": # 當使用者意圖為詢bbb時
+        msg = str(bbb)
         line_bot_api.reply_message(
             event.reply_token,
             TextSendMessage(text=msg))
         return 0
 
-    ###### TMU Abei 客制區
-    
-    elif user_intent == "1. enroll-推薦": # 當使用者意圖為 1. enroll-推薦 時
-        msg = str(response)
-        line_bot_api.reply_message(
-            event.reply_token,
-            TextSendMessage(text=msg))
-        return 0   
-    
-    elif user_intent == "1. enroll-退選": # 當使用者意圖為 1. enroll-退選 時
-        msg = str(response)
-        line_bot_api.reply_message(
-            event.reply_token,
-            TextSendMessage(text=msg))
-        return 0    
-    
-    elif user_intent == "1. enroll-選課": # 當使用者意圖為 1. enroll-選課 時
-        msg = str(response)
-        line_bot_api.reply_message(
-            event.reply_token,
-            TextSendMessage(text=msg))
-        return 0       
-    
-    elif user_intent == "1. enroll-選課時間": # 當使用者意圖為 1. enroll-選課時間 時
-        msg = str(response)
-        line_bot_api.reply_message(
-            event.reply_token,
-            TextSendMessage(text=msg))
-        return 0       
-    
-    elif user_intent == "2. money-申請": # 當使用者意圖為 2. money-申請 時
-        msg = str(response)
-        line_bot_api.reply_message(
-            event.reply_token,
-            TextSendMessage(text=msg))
-        return 0 
+
     
     #else: # 聽不懂時的回答
-    elif user_intent == "unknown":
+    elif msg == "unknown":
         msg = "挖聽謀ㄟ"
         print (msg)
         line_bot_api.reply_message(
