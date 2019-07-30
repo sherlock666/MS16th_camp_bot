@@ -104,8 +104,10 @@ def get_answer(message_text):
 def handle_message(event):                  # default
     #msg = get_answer(event.message.text)
     msg = event.message.text
-    line_bot_api.reply_message(event.reply_token,
-    TextSendMessage(text=msg))
+    line_bot_api.reply_message(
+        event.reply_token,
+        TextSendMessage(text=msg))
+    return 0
     print("event.reply_token:", event.reply_token)
     print("event.source.user_id:", event.source.user_id)
     print("event.message.text:", event.message.id)
