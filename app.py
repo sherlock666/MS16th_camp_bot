@@ -109,8 +109,7 @@ def handle_message(event):                  # default
     #print(uid)
     
  
-    while 
-        answer = get_answer(event.message.text)
+    while answer = get_answer(event.message.text):
         line_bot_api.reply_message(
             event.reply_token,
             TextSendMessage(text=answer))
