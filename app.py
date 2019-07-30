@@ -57,7 +57,7 @@ def callback():
 
     return 'ok'
 
-'''
+
 
 # Routes
 @app.route('/')
@@ -91,23 +91,14 @@ def get_answer(message_text):
             return data["error"]["message"]
         else:    
             msg = data['answers'][0]['answer']
-            msg = str(msg)
-            line_bot_api.reply_message(
-                event.reply_token,
-                TextSendMessage(text=msg))
-            return 0
+            msg = str(msg)       
+            return msg
     except Exception:
         return "Error occurs when finding answer"
-'''
+
 
 @handler.add(MessageEvent, message=TextMessage)  # default
 def handle_message(event):                  # default
-    #msg = get_answer(event.message.text)
-    msg = event.message.text
-    line_bot_api.reply_message(
-        event.reply_token,
-        TextSendMessage(text=msg))
-    return 0
     print("event.reply_token:", event.reply_token)
     print("event.source.user_id:", event.source.user_id)
     print("event.message.text:", event.message.id)
@@ -118,18 +109,23 @@ def handle_message(event):                  # default
     #print(uid)
     
  
-
+    while 
+        answer = get_answer(event.message.text)
+        line_bot_api.reply_message(
+            event.reply_token,
+            TextSendMessage(text=answer))
+        return 0
     # 3. 根據使用者的意圖做相對應的回答
     if msg == "aaa": # 當使用者意圖為aaa時
         # 建立一個 button 的 template
-        msg = str(msg)
+        msg = str(hi)
         line_bot_api.reply_message(
             event.reply_token,
             TextSendMessage(text=msg))
         return 0
 
     elif msg == "bbb": # 當使用者意圖為詢bbb時
-        msg = str(msg)
+        msg = str(hello)
         line_bot_api.reply_message(
             event.reply_token,
             TextSendMessage(text=msg))
