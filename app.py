@@ -102,7 +102,8 @@ def get_answer(message_text):
 
 @handler.add(MessageEvent, message=TextMessage)  # default
 def handle_message(event):                  # default
-    msg = get_answer(event.message.text)
+    #msg = get_answer(event.message.text)
+    msg = get_answerevent.message.text
     line_bot_api.reply_message(event.reply_token,
     TextSendMessage(text=msg))
     print("event.reply_token:", event.reply_token)
