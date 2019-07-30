@@ -91,16 +91,16 @@ def get_answer(message_text):
         if "error" in data:
             return data["error"]["message"]
         #這裡我們預設取第一個答案
-            answer = data['answers'][0]['answer']
-            return answer
+            msg = data['msgs'][0]['msg']
+            return msg
     except Exception:
-        return "Error occurs when finding answer"
+        return "Error occurs when finding msg"
 
 
 def handle_message(event):                  # default
     msg = get_answer(event.message.text)
     line_bot_api.reply_message(event.reply_token,
-    TextSendMessage(text=answer))
+    TextSendMessage(text=msg))
     print("event.reply_token:", event.reply_token)
     print("event.source.user_id:", event.source.user_id)
     print("event.message.text:", event.message.id)
