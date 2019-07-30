@@ -104,7 +104,8 @@ def handle_message(event):
             other="\n\n*****其他功能*****\n天氣預報"
 
             SelfReplyOnly="\n\n*****私聊限定*****\n!本區功能無法於群組使用!\n!請點選本帳號的聊天以使用!\n施工中"
-            content = ("請輸入功能指令:"+student_program+association_program+dt_program+campaign_program+diy+SelfReplyOnly+other+"\n\n幫助")
+            
+            content = ("請輸入功能指令:"+student_program+association_program+dt_program+campaign_program+SelfReplyOnly+other+"\n\n幫助")
             line_bot_api.reply_message(
                 event.reply_token,
                 TextSendMessage(text=content))
