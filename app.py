@@ -24,6 +24,7 @@ from linebot.exceptions import (
 from linebot.models import *
 
 ##### Function Import #####
+from tools.weather import weather
 
 ##### Main #####
 
@@ -57,7 +58,7 @@ def callback():
 
     return 'ok'
 
-
+##### QNA 設定區 勿動 #####
 @app.route("/qnamaker", methods=['POST'])
 def get_answer(message_text):
 
@@ -83,7 +84,7 @@ def get_answer(message_text):
         return "Error occurs when finding answer"
 
     
-# 處理訊息
+##### 處理訊息 #####
 
 @handler.add(MessageEvent, message=TextMessage)
 
@@ -94,10 +95,127 @@ def handle_message(event):
     print("event.source.type:", event.source.type)
     msg = get_answer(event.message.text)
     if msg == "No good match found in KB." :
+        if event.message.text == "開始玩" or event.message.text == "功能表":
+            student_program="\n\n*****實習計畫*****\n新聞\n電影\n遊戲資訊\n看廢文\n圖片(施工中)"
+            tc_program="\n\n*****提攜專區*****\n施工中"
+            association_program="\n\n*****協會專區*****\n施工中"
+            dt_program="\n\n*****DT專區*****\n施工中"
+            campaign_program="\n\n*****Campaign專區*****\n施工中"
+            other="\n\n*****其他功能*****\n天氣預報"
+
+            SelfReplyOnly="\n\n*****私聊限定*****\n!本區功能無法於群組使用!\n!請點選本帳號的聊天以使用!\n施工中"
+            content = ("請輸入功能指令:"+student_program+association_program+dt_program+campaign_program+diy+SelfReplyOnly+other+"\n\n幫助")
+            line_bot_api.reply_message(
+                event.reply_token,
+                TextSendMessage(text=content))
+            return 0
+######## 客製功能區 ########       
         if event.message.text == "aaa" :
             content = "哈囉"
             line_bot_api.reply_message(event.reply_token,TextSendMessage(text=content))
             return 0
+
+#### 天氣預報 ####
+        if event.message.text == "!天氣預報":
+            content = "請輸入欲查詢地點\n(目前限台灣本島+離島)\n\n使用方式如下(已設有防呆):\n!台北市\n!臺北市\n!台北\n!臺北\n!taipei"
+            line_bot_api.reply_message(
+                event.reply_token,
+                TextSendMessage(text=content))
+            return 0
+
+        if event.message.text == "!台北市" or event.message.text == "!臺北市" or event.message.text == "!台北" or event.message.text == "!臺北" or event.message.text == "!taipei":
+            content = weather(L=0)
+            line_bot_api.reply_message(event.reply_token,TextSendMessage(text=content))
+            return 0
+        if event.message.text == "!新北市" or event.message.text == "!新北" or event.message.text == "!new taipei":
+            content = weather(L=1)
+            line_bot_api.reply_message(event.reply_token,TextSendMessage(text=content))
+            return 0
+        if event.message.text == "!桃園市" or event.message.text == "!taoyuan":
+            content = weather(L=2)
+            line_bot_api.reply_message(event.reply_token,TextSendMessage(text=content))
+            return 0
+        if event.message.text == "!台中市" or event.message.text == "!臺中市" or event.message.text == "!台中" or event.message.text == "!臺中" or event.message.text == "!taichung":
+            content = weather(L=3)
+            line_bot_api.reply_message(event.reply_token,TextSendMessage(text=content))
+            return 0
+        if event.message.text == "!台南市" or event.message.text == "!臺南市" or event.message.text == "!台南" or event.message.text == "!臺南" or event.message.text == "!tainan":
+            content = weather(L=4)
+            line_bot_api.reply_message(event.reply_token,TextSendMessage(text=content))
+            return 0
+        if event.message.text == "!高雄市" or event.message.text == "!高雄" or event.message.text == "!kaohsiung":
+            content = weather(L=5)
+            line_bot_api.reply_message(event.reply_token,TextSendMessage(text=content))
+            return 0
+        if event.message.text == "!基隆市" or event.message.text == "!基隆" or event.message.text == "!keelung":
+            content = weather(L=6)
+            line_bot_api.reply_message(event.reply_token,TextSendMessage(text=content))
+            return 0
+        if event.message.text == "!新竹縣" or event.message.text == "!hsinchu county":
+            content = weather(L=7)
+            line_bot_api.reply_message(event.reply_token,TextSendMessage(text=content))
+            return 0
+        if event.message.text == "!新竹市" or event.message.text == "!hsinchu city":
+            content = weather(L=8)
+            line_bot_api.reply_message(event.reply_token,TextSendMessage(text=content))
+            return 0
+        if event.message.text == "!苗栗縣" or event.message.text == "!苗栗" or event.message.text == "!miaoli":
+            content = weather(L=9)
+            line_bot_api.reply_message(event.reply_token,TextSendMessage(text=content))
+            return 0
+        if event.message.text == "!彰化縣" or event.message.text == "!彰化" or event.message.text == "!changhua":
+            content = weather(L=10)
+            line_bot_api.reply_message(event.reply_token,TextSendMessage(text=content))
+            return 0
+        if event.message.text == "!南投縣" or event.message.text == "!南投" or event.message.text == "!nantou":
+            content = weather(L=11)
+            line_bot_api.reply_message(event.reply_token,TextSendMessage(text=content))
+            return 0
+        if event.message.text == "!雲林縣" or event.message.text == "!雲林" or event.message.text == "!yunlin":
+            content = weather(L=12)
+            line_bot_api.reply_message(event.reply_token,TextSendMessage(text=content))
+            return 0
+        if event.message.text == "!嘉義縣" or event.message.text == "!chiayi county":
+            content = weather(L=13)
+            line_bot_api.reply_message(event.reply_token,TextSendMessage(text=content))
+            return 0
+        if event.message.text == "!嘉義市" or event.message.text == "!chiayi city":
+            content = weather(L=14)
+            line_bot_api.reply_message(event.reply_token,TextSendMessage(text=content))
+            return 0
+        if event.message.text == "!屏東縣" or event.message.text == "!屏東" or event.message.text == "!pingtung":
+            content = weather(L=15)
+            line_bot_api.reply_message(event.reply_token,TextSendMessage(text=content))
+            return 0
+        if event.message.text == "!宜蘭縣" or event.message.text == "!宜蘭" or event.message.text == "!ilan":
+            content = weather(L=16)
+            line_bot_api.reply_message(event.reply_token,TextSendMessage(text=content))
+            return 0
+        if event.message.text == "!花蓮縣" or event.message.text == "!花蓮" or event.message.text == "!hualien":
+            content = weather(L=17)
+            line_bot_api.reply_message(event.reply_token,TextSendMessage(text=content))
+            return 0
+        if event.message.text == "!臺東縣" or event.message.text == "!台東" or event.message.text == "!taitung":
+            content = weather(L=18)
+            line_bot_api.reply_message(event.reply_token,TextSendMessage(text=content))
+            return 0
+        if event.message.text == "!澎湖縣" or event.message.text == "!澎湖" or event.message.text == "!penghu":
+            content = weather(L=19)
+            line_bot_api.reply_message(event.reply_token,TextSendMessage(text=content))
+            return 0
+        if event.message.text == "!金門縣" or event.message.text == "!金門" or event.message.text == "!jinmen":
+            content = weather(L=20)
+            line_bot_api.reply_message(event.reply_token,TextSendMessage(text=content))
+            return 0
+        if event.message.text == "!連江縣" or event.message.text == "!連江" or event.message.text == "!lianjiang":
+            content = weather(L=21)
+            line_bot_api.reply_message(event.reply_token,TextSendMessage(text=content))
+            return 0
+
+
+
+
+######## 客製功能區 ########                
     else:
         line_bot_api.reply_message(event.reply_token,TextSendMessage(text=msg))
         return 0
