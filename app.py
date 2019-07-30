@@ -58,19 +58,6 @@ def callback():
     return 'ok'
 
 
-
-# Routes
-@app.route('/')
-def root():
-  return app.send_static_file('index.html')
-
-@app.route('/<path:path>')
-def static_proxy(path):
-  # send_static_file will guess the correct MIME type
-  return app.send_static_file(path)
-
-
-
 @app.route("/qnamaker", methods=['POST'])
 def get_answer(message_text):
 
@@ -90,69 +77,37 @@ def get_answer(message_text):
         if "error" in data:
             return data["error"]["message"]
         else:    
-            msg = data['answers'][0]['answer']
-            msg = str(msg)       
-            return msg
+            answer = data['answers'][0]['answer']
+            return answer
     except Exception:
         return "Error occurs when finding answer"
 
 
-@handler.add(MessageEvent, message=TextMessage)  # default
-def handle_message(event):                  # default
-    print("event.reply_token:", event.reply_token)
-    print("event.source.user_id:", event.source.user_id)
-    print("event.message.text:", event.message.id)
-    print("event.source.type:", event.source.type)
-    msg = event.message.text # message from user
-    uid = event.source.user_id # user id
-    #print(msg)
-    #print(uid)
-    
- 
-    while answer = get_answer(event.message.text):
-        line_bot_api.reply_message(
-            event.reply_token,
-            TextSendMessage(text=answer))
-        return 0
-    # 3. 根據使用者的意圖做相對應的回答
-    if msg == "aaa": # 當使用者意圖為aaa時
-        # 建立一個 button 的 template
-        msg = str(hi)
-        line_bot_api.reply_message(
-            event.reply_token,
-            TextSendMessage(text=msg))
-        return 0
-
-    elif msg == "bbb": # 當使用者意圖為詢bbb時
-        msg = str(hello)
-        line_bot_api.reply_message(
-            event.reply_token,
-            TextSendMessage(text=msg))
-        return 0
-
+# 監聽所有來自 /callback 的 Post Request
+@app.route("/callback", methods=['POST'])
+def callback():
+    # get X-Line-Signature header value
+    signature = request.headers['X-Line-Signature']
+    # get request body as text
+    body = request.get_data(as_text=True)
+    app.logger.info("Request body: " + body)
+    # handle webhook body
+    try:
+        handler.handle(body, signature)
+    except InvalidSignatureError:
+        abort(400)
+    return 'OK'
 
     
-    #else: # 聽不懂時的回答
-    elif msg == "unknown":
-        msg = "挖聽謀ㄟ"
-        print (msg)
-        line_bot_api.reply_message(
-            event.reply_token,
-            TextSendMessage(text=msg))
-        return 0    
-    
-  
+# 處理訊息
 
+@handler.add(MessageEvent, message=TextMessage)
 
-#################### bot群組相關設定 #####################
+def handle_message(event):
+    answer = get_answer(event.message.text)
+    line_bot_api.reply_message(event.reply_token,
+    TextSendMessage(text=answer))
 
-### 入群問候 (維護中) ###
-
-@handler.add(JoinEvent)
-def handle_join(event):
-    msg = '大家好~~'
-    line_bot_api.reply_message(event.reply_token, TextSendMessage(msg))
 
 if __name__ == '__main__':
     app.run()
-
