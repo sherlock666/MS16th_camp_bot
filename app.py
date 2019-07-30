@@ -57,7 +57,7 @@ def callback():
 
     return 'ok'
 
-
+'''
 
 # Routes
 @app.route('/')
@@ -98,7 +98,7 @@ def get_answer(message_text):
             return 0
     except Exception:
         return "Error occurs when finding answer"
-
+'''
 
 @handler.add(MessageEvent, message=TextMessage)  # default
 def handle_message(event):                  # default
