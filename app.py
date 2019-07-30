@@ -87,14 +87,14 @@ def handle_message(event):                  # default
     # 3. 根據使用者的意圖做相對應的回答
     if msg == "aaa": # 當使用者意圖為aaa時
         # 建立一個 button 的 template
-        msg = str(response)
+        msg = str(msg)
         line_bot_api.reply_message(
             event.reply_token,
             TextSendMessage(text=msg))
         return 0
 
-    elif msg == "WhatToPlay": # 當使用者意圖為詢bbb時
-        msg = str(bbb)
+    elif msg == "bbb": # 當使用者意圖為詢bbb時
+        msg = str(msg)
         line_bot_api.reply_message(
             event.reply_token,
             TextSendMessage(text=msg))
