@@ -92,9 +92,9 @@ def get_answer(message_text):
             return data["error"]["message"]
         #這裡我們預設取第一個答案
         answer = data['answers'][0]['answer']
-    return answer
-    except Exception:
-    return "Error occurs when finding answer"
+        return answer
+        except Exception:
+        return "Error occurs when finding answer"
 
 
 def handle_message(event):                  # default
