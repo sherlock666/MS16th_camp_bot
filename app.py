@@ -86,21 +86,24 @@ def get_answer(message_text):
                    }
                )
     data = response.json()
+    msg = data['answers'][0]['answer']
+    return msg
+    '''
     try: 
         #我們使用免費service可能會超過限制（一秒可以發的request數）
         if "error" in data:
             return data["error"]["message"]
         #這裡我們預設取第一個答案
-            msg = data['msgs'][0]['msg']
+            msg = data['answers'][0]['answer']
             return msg
     except Exception:
-        return "Error occurs when finding msg"
-
+            return "Error occurs when finding answer"
+    '''
 
 def handle_message(event):                  # default
     msg = get_answer(event.message.text)
     line_bot_api.reply_message(event.reply_token,
-    TextSendMessage(text=msg))
+    TextSendMessage(text=answer))
     print("event.reply_token:", event.reply_token)
     print("event.source.user_id:", event.source.user_id)
     print("event.message.text:", event.message.id)
