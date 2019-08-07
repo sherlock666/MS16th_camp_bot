@@ -236,34 +236,8 @@ def handle_message(event):
                     layout='vertical',
                     contents=[
                         # title
-                        TextComponent(text='信用卡優惠查詢', weight='bold', size='xl'),
+                        TextComponent(text='領袖營攻略手冊', weight='bold', size='xl',align="center",color="#E37B18"),
                         # info
-                        BoxComponent(
-                            layout='vertical',
-                            margin='lg',
-                            spacing='sm',
-                            contents=[
-                                BoxComponent(
-                                    layout='baseline',
-                                    spacing='sm',
-                                    contents=[
-                                        TextComponent(
-                                            text='類別',
-                                            color='#aaaaaa',
-                                            size='sm',
-                                            flex=1
-                                        ),
-                                        TextComponent(
-                                            text='休閒娛樂',
-                                            wrap=True,
-                                            color='#666666',
-                                            size='sm',
-                                            flex=5
-                                        )
-                                    ],
-                                ),
-                            ],
-                        )
                     ],
                 ),
                 footer=BoxComponent(
