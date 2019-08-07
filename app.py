@@ -253,18 +253,13 @@ def handle_message(event):
                                 SpacerComponent(size='sm'),
                                 # callAction
                                 ButtonComponent(
-
                                     action=MessageAction(label='遠征行程', text='遠征行程')
                                 ),
                                 # separator
                                 SeparatorComponent(),
                                 # websiteAction
-                                ImageComponent(
-                                    url='https://i.imgur.com/rR6lQka.jpg',
-                                    size='full',
-                                    aspect_ratio='20:13',
-                                    aspect_mode='cover',
-                                    action=MessageAction(label='HappyCash & HAPPY GO 聯名卡(愛戀紅)', text='HappyCash & HAPPY GO 聯名卡(愛戀紅)')
+                                ButtonComponent(
+                                    action=MessageAction(label='營地駐紮', text='營地駐紮')
                                 )
                             ]
                         ),
@@ -276,22 +271,14 @@ def handle_message(event):
                                 # callAction, separator, websiteAction
                                 SpacerComponent(size='sm'),
                                 # callAction
-                                ImageComponent(
-                                    url='https://i.imgur.com/GSXzOsv.png',
-                                    size='full',
-                                    aspect_ratio='20:13',
-                                    aspect_mode='cover',
-                                    action=MessageAction(label='華南夢時代聯名卡', text='華南夢時代聯名卡')
+                                ButtonComponent(
+                                    action=MessageAction(label='夥伴相認', text='夥伴相認')
                                 ),
                                 # separator
                                 SeparatorComponent(),
                                 # websiteAction
-                                ImageComponent(
-                                    url='https://i.imgur.com/K4cAACy.jpg',
-                                    size='full',
-                                    aspect_ratio='20:13',
-                                    aspect_mode='cover',
-                                    action=MessageAction(label='HappyCash & HAPPY GO 聯名卡(爵愛黑)', text='HappyCash & HAPPY GO 聯名卡(爵愛黑)')
+                                ButtonComponent(
+                                    action=MessageAction(label='戰區概況', text='戰區概況')
                                 )
                             ]
                         ),
@@ -303,22 +290,14 @@ def handle_message(event):
                                 # callAction, separator, websiteAction
                                 SpacerComponent(size='sm'),
                                 # callAction
-                                ImageComponent(
-                                    url='https://i.imgur.com/6Vd175b.jpg',
-                                    size='full',
-                                    aspect_ratio='20:13',
-                                    aspect_mode='cover',
-                                    action=MessageAction(label='HappyCash & HAPPY GO 聯名卡(超級現金回饋)', text='HappyCash & HAPPY GO 聯名卡(超級現金回饋)')
+                                ButtonComponent(
+                                    action=MessageAction(label='RPG1', text='RPG1')
                                 ),
                                 # separator
                                 SeparatorComponent(),
                                 # websiteAction
-                                ImageComponent(
-                                    url='https://i.imgur.com/oTyud1r.png',
-                                    size='full',
-                                    aspect_ratio='20:13',
-                                    aspect_mode='cover',
-                                    action=MessageAction(label='現金回饋', text='現金回饋')
+                                ButtonComponent(
+                                    action=MessageAction(label='紙上談兵', text='紙上談兵')
                                 )
                             ]
                         ),
@@ -330,22 +309,14 @@ def handle_message(event):
                                 # callAction, separator, websiteAction
                                 SpacerComponent(size='sm'),
                                 # callAction
-                                ImageComponent(
-                                    url='https://i.imgur.com/6Vd175b.jpg',
-                                    size='full',
-                                    aspect_ratio='20:13',
-                                    aspect_mode='cover',
-                                    action=MessageAction(label='HappyCash & HAPPY GO 聯名卡(超級現金回饋)', text='HappyCash & HAPPY GO 聯名卡(超級現金回饋)')
+                                ButtonComponent(
+                                    action=MessageAction(label='RPG2', text='RPG2')
                                 ),
                                 # separator
                                 SeparatorComponent(),
                                 # websiteAction
-                                ImageComponent(
-                                    url='https://i.imgur.com/oTyud1r.png',
-                                    size='full',
-                                    aspect_ratio='20:13',
-                                    aspect_mode='cover',
-                                    action=MessageAction(label='現金回饋', text='現金回饋')
+                                ButtonComponent(
+                                    action=MessageAction(label='行囊準備', text='行囊準備')
                                 )
                             ]
                         ),
