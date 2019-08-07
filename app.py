@@ -216,6 +216,11 @@ def handle_message(event):
             line_bot_api.reply_message(event.reply_token,TextSendMessage(text=content))
             return 0
 
+        if event.message.text == "領袖營":
+            content = weather(L=21)
+            line_bot_api.reply_message(event.reply_token,TextSendMessage(text=content))
+            return 0
+
 
 
 
