@@ -82,9 +82,10 @@ def get_answer(message_text):
         else:    
             answer = data['answers'][0]['answer']
             return answer
+    '''        
     except Exception:
         return "Error occurs when finding answer"
-
+    '''
     
 ##### 處理訊息 #####
 
@@ -225,7 +226,7 @@ def handle_message(event):
                 PostbackTemplateAction(label='commercial_contest',data='commercial_contest',text='商業競賽')
             ])
             camp_book_message = TemplateSendMessage(alt_text='camp_book',template=camp_book_template)
-            line_bot_api.reply_message(event.reply_token,[TextSendMessage(text=camp_book_message)])
+            line_bot_api.reply_message(event.reply_token,TextSendMessage(text=camp_book_message))
             return 0   
 
 
