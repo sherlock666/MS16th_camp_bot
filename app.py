@@ -9,7 +9,6 @@ import runpy
 import urllib
 import time
 import tempfile
-import apiai
 import json
 from bs4 import BeautifulSoup
 from flask import Flask, request, abort
@@ -24,7 +23,7 @@ from linebot.exceptions import (
 from linebot.models import (
     MessageEvent, TextMessage, TextSendMessage,
     SourceUser, SourceGroup, SourceRoom,
-    TemplateSendMessage, ConfirmTemplate, MessageAction,
+    TemplateSendMessage, ConfirmTemplate,
     ButtonsTemplate, ImageCarouselTemplate, ImageCarouselColumn, URIAction, URITemplateAction,PostbackTemplateAction,
     PostbackAction, DatetimePickerAction,
     CameraAction, CameraRollAction, LocationAction,
