@@ -217,7 +217,7 @@ def handle_message(event):
             return 0
 
         if event.message.text == "領袖營":
-            16th_camp_template = ButtonsTemplate(text="領袖營攻略手冊",actions=[
+            camp_template = ButtonsTemplate(text="領袖營攻略手冊",actions=[
                 PostbackTemplateAction(label='遠征行程',data='遠征行程',text='遠征行程'),
                 PostbackTemplateAction(label='營地駐紮',data='營地駐紮',text='營地駐紮'),
                 PostbackTemplateAction(label='夥伴相認',data='夥伴相認',text='夥伴相認'),
@@ -227,8 +227,8 @@ def handle_message(event):
                 PostbackTemplateAction(label='行囊準備',data='行囊準備',text='行囊準備'),
                 PostbackTemplateAction(label='???',data='???',text='???')
             ])
-            16th_camp_message = TemplateSendMessage(alt_text='16th_camp_info',template=16th_camp_template)
-            line_bot_api.reply_message(event.reply_token,16th_camp_message)
+            camp_message = TemplateSendMessage(alt_text='16th_camp_info',template=camp_template)
+            line_bot_api.reply_message(event.reply_token,camp_message)
             return 0
 
 
