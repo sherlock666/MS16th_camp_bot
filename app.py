@@ -217,7 +217,13 @@ def handle_message(event):
             return 0
 
         if event.message.text == "領袖營":
-            content = weather(L=21)
+            sex_template = ButtonsTemplate(text="[Q1/5] 請問您的性別是\n[Q1/5] What is your gender",actions=[
+                PostbackTemplateAction(label='男性 (Male)',data='男性=gender',text='男性'),
+                PostbackTemplateAction(label='女性 (Female)',data='女性=gender',text='女性'),
+                PostbackTemplateAction(label='不想回答 (secret)',data='不想回答=gender',text='不想回答')
+            ])
+            sex_message = TemplateSendMessage(alt_text='Gender Info',template=sex_template)
+            line_bot_api.reply_message(event.reply_token,TextSendMessage(text=sex_message)
             line_bot_api.reply_message(event.reply_token,TextSendMessage(text=content))
             return 0
 
