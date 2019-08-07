@@ -73,18 +73,9 @@ def get_answer(message_text):
                 'Authorization': '9b2c32d0-31e2-469b-8ed8-4ad1c93ad90d'
         }
         )
-
-    data = response.json()
-
-    try:
-        if "error" in data:
-            return data["error"]["message"]
-        else:    
-            answer = data['answers'][0]['answer']
-            return answer
-
-    except Exception:
-        return 0
+ 
+    answer = data['answers'][0]['answer']
+    return answer
 
     
 ##### 處理訊息 #####
