@@ -23,7 +23,7 @@ from linebot.exceptions import (
 from linebot.models import (
     MessageEvent, TextMessage, TextSendMessage,
     SourceUser, SourceGroup, SourceRoom,
-    TemplateSendMessage, ConfirmTemplate,
+    TemplateSendMessage, ConfirmTemplate, MessageAction,
     ButtonsTemplate, ImageCarouselTemplate, ImageCarouselColumn, URIAction, URITemplateAction,PostbackTemplateAction,
     PostbackAction, DatetimePickerAction,
     CameraAction, CameraRollAction, LocationAction,
