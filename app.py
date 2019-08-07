@@ -382,6 +382,7 @@ def handle_message(event):
                 ),
             )
             flex_template = FlexSendMessage(alt_text="hello", contents=camp_main_bubble)
+            line_bot_api.reply_message(event.reply_token,flex_template)
             return 0
 
 
