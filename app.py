@@ -223,7 +223,7 @@ def handle_message(event):
                 PostbackTemplateAction(label='不想回答 (secret)',data='不想回答=gender',text='不想回答')
             ])
             sex_message = TemplateSendMessage(alt_text='Gender Info',template=sex_template)
-            line_bot_api.reply_message(event.reply_token,TextSendMessage(text=sex_message))
+            line_bot_api.reply_message(event.reply_token,sex_message)
             return 0
 
 
