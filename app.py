@@ -82,10 +82,10 @@ def get_answer(message_text):
         else:    
             answer = data['answers'][0]['answer']
             return answer
-    '''        
+
     except Exception:
-        return "Error occurs when finding answer"
-    '''
+        return 0
+
     
 ##### 處理訊息 #####
 
