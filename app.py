@@ -68,14 +68,23 @@ def get_answer(message_text):
     url = "https://chevadymeowbotqna.azurewebsites.net/qnamaker/knowledgebases/4535ecb8-21ee-42c6-90a4-5b2529a710c4/generateAnswer"
     
     response = requests.post(
-             json.dumps({'question': message_text}),
+        url,
+        json.dumps({'question': message_text}),
         headers={'Content-Type': 'application/json',
                 'Authorization': '9b2c32d0-31e2-469b-8ed8-4ad1c93ad90d'
         }
         )
- 
-    answer = data['answers'][0]['answer']
-    return answer
+
+    data = response.json()
+
+    try:
+        if "error" in data:
+            return data["error"]["message"]
+        else:    
+            answer = data['answers'][0]['answer']
+            return answer
+    except Exception:
+        return "Error occurs when finding answer"
 
     
 ##### 處理訊息 #####
@@ -87,7 +96,7 @@ def handle_message(event):
     print("event.source.user_id:", event.source.user_id)
     print("event.message.text:", event.message.text)
     print("event.source.type:", event.source.type)
-    msg = get_answer(event.message.text)                                                                                                                                                                                                                                                                                                                           
+    msg = get_answer(event.message.text)
     if msg == "No good match found in KB." :
         if event.message.text == "開始玩" or event.message.text == "功能表":
             student_program="\n\n*****實習計畫*****\n新聞\n電影\n遊戲資訊\n看廢文\n圖片(施工中)"
@@ -207,18 +216,6 @@ def handle_message(event):
             line_bot_api.reply_message(event.reply_token,TextSendMessage(text=content))
             return 0
 
-######## 16th 領袖營 ########  
-        if event.message.text == "領袖營":
-            camp_book_template = ButtonsTemplate(text="活動手冊選單",actions=[
-                PostbackTemplateAction(label='camp_schedule',data='camp_schedule',text='行程表'),
-                PostbackTemplateAction(label='bring_note',data='bring_note',text='生活須知'),
-                PostbackTemplateAction(label='RPG1_description',data='RPG1_description',text='RPG1 說明書'),
-                PostbackTemplateAction(label='RPG2_description',data='RPG2_description',text='RPG2 說明書'),
-                PostbackTemplateAction(label='commercial_contest',data='commercial_contest',text='商業競賽')
-            ])
-            camp_book_message = TemplateSendMessage(alt_text='camp_book',template=camp_book_template)
-            line_bot_api.reply_message(event.reply_token,TextSendMessage(text=camp_book_message))
-            return 0   
 
 
 
