@@ -229,35 +229,58 @@ def handle_message(event):
             line_bot_api.reply_message(event.reply_token,TextSendMessage(text=content))
             return 0
 
-        if event.message.text == "imgur bot":
-            carousel_template_message = TemplateSendMessage(
-                    alt_text='目錄 template',
+        if event.message.text == "領袖營":
+            camp_main_carousel_template_message = TemplateSendMessage(
+                    alt_text='領袖營攻略手冊',
                     template=CarouselTemplate(
                         columns=[
                             CarouselColumn(
                                 thumbnail_image_url='https://i.imgur.com/h4UzRit.jpg',
-                                title='選擇服務',
-                                text='請選擇',
+                                title='領袖營攻略手冊',
                                 actions=[
-                                    URIAction(
-                                        label='分享 bot',
-                                        uri='https://line.me/R/nv/recommendOA/@vbi2716y'
+                                    MessageAction(
+                                        label='遠征行程',
+                                        test='遠征行程'
                                     ),
-                                    URIAction(
-                                        label='PTT正妹網',
-                                        uri='https://ptt-beauty-infinite-scroll.herokuapp.com/'
+                                    MessageAction(
+                                        label='營地駐紮',
+                                        test='營地駐紮'
                                     ),
-                                    URIAction(
-                                        label='youtube 程式教學分享頻道',
-                                        uri='https://www.youtube.com/channel/UCPhn2rCqhu0HdktsFjixahA'
-                                    )
+                                    MessageAction(
+                                        label='營地駐紮',
+                                        test='營地駐紮'
+                                    ),
+                                    MessageAction(
+                                        label='夥伴相認',
+                                        test='夥伴相認'
+                                    ),                                
+                                    MessageAction(
+                                        label='RPG1',
+                                        test='RPG1'
+                                    ),
+                                    MessageAction(
+                                        label='紙上談兵',
+                                        test='紙上談兵'
+                                    ),
+                                    MessageAction(
+                                        label='RPG2',
+                                        test='RPG2'
+                                    ),
+                                    MessageAction(
+                                        label='行囊準備',
+                                        test='行囊準備'
+                                    ),
+                                     MessageAction(
+                                        label='???',
+                                        test='???'
+                                    )                                                                       
                                 ]
                             )
                         ]
                     )
                 )
 
-            line_bot_api.reply_message(event.reply_token, carousel_template_message)
+            line_bot_api.reply_message(event.reply_token, camp_main_carousel_template_message)
             return 0
 
 
