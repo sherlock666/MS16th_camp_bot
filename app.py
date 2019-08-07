@@ -224,7 +224,6 @@ def handle_message(event):
             ])
             sex_message = TemplateSendMessage(alt_text='Gender Info',template=sex_template)
             line_bot_api.reply_message(event.reply_token,TextSendMessage(text=sex_message)
-            line_bot_api.reply_message(event.reply_token,TextSendMessage(text=content))
             return 0
 
 
