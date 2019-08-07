@@ -216,33 +216,24 @@ def handle_message(event):
             line_bot_api.reply_message(event.reply_token,TextSendMessage(text=content))
             return 0
 
-        if event.message.text == "領袖營":
+        if event.message.text == "imgur bot":
             carousel_template_message = TemplateSendMessage(
-                    alt_text='目錄 template',
-                    template=CarouselTemplate(
-                        columns=[
-                            CarouselColumn(
-                                thumbnail_image_url='https://i.imgur.com/h4UzRit.jpg',
-                                title='領袖營攻略手冊',
-                                actions=[
-                                    MessageTemplateAction(
-                                        label='分享 bot',
-                                        text='https://line.me/R/nv/recommendOA/@vbi2716y'
-                                    ),
-                                    MessageTemplateAction(
-                                        label='PTT正妹網',
-                                        text='https://ptt-beauty-infinite-scroll.herokuapp.com/'
-                                    ),
-                                    MessageTemplateAction(
-                                        label='youtube 程式教學分享頻道',
-                                        text='https://www.youtube.com/channel/UCPhn2rCqhu0HdktsFjixahA'
-                                    )
-                                ]
-                            )
-                        ]
-                    )
+                alt_text='ImageCarousel template',
+                template=ImageCarouselTemplate(
+                    columns=[
+                        ImageCarouselColumn(
+                            image_url='https://i.imgur.com/g8zAYMq.jpg',
+                            action=URIAction(
+                                label='加我好友試玩',
+                                uri='https://line.me/R/ti/p/%40gmy1077x'
+                            ),
+                        ),
+                    ]
                 )
-            line_bot_api.reply_message(event.reply_token, carousel_template_message)
+            )
+            line_bot_api.reply_message(
+                event.reply_token,
+                carousel_template_message)
             return 0
 
 
