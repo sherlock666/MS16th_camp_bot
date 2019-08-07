@@ -217,13 +217,18 @@ def handle_message(event):
             return 0
 
         if event.message.text == "領袖營":
-            sex_template = ButtonsTemplate(text="[Q1/5] 請問您的性別是\n[Q1/5] What is your gender",actions=[
-                PostbackTemplateAction(label='男性 (Male)',data='男性=gender',text='男性'),
-                PostbackTemplateAction(label='女性 (Female)',data='女性=gender',text='女性'),
-                PostbackTemplateAction(label='不想回答 (secret)',data='不想回答=gender',text='不想回答')
+            16th_camp_template = ButtonsTemplate(text="領袖營攻略手冊",actions=[
+                PostbackTemplateAction(label='遠征行程',data='遠征行程',text='遠征行程'),
+                PostbackTemplateAction(label='營地駐紮',data='營地駐紮',text='營地駐紮'),
+                PostbackTemplateAction(label='夥伴相認',data='夥伴相認',text='夥伴相認'),
+                PostbackTemplateAction(label='RPG1',data='RPG1',text='RPG1'),
+                PostbackTemplateAction(label='紙上談兵',data='紙上談兵',text='紙上談兵'),
+                PostbackTemplateAction(label='RPG2',data='RPG2',text='RPG2'),
+                PostbackTemplateAction(label='行囊準備',data='行囊準備',text='行囊準備'),
+                PostbackTemplateAction(label='???',data='???',text='???')
             ])
-            sex_message = TemplateSendMessage(alt_text='Gender Info',template=sex_template)
-            line_bot_api.reply_message(event.reply_token,sex_message)
+            16th_camp_message = TemplateSendMessage(alt_text='16th_camp_info',template=16th_camp_template)
+            line_bot_api.reply_message(event.reply_token,16th_camp_message)
             return 0
 
 
