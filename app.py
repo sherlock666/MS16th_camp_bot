@@ -217,18 +217,32 @@ def handle_message(event):
             return 0
 
         if event.message.text == "領袖營":
-            camp_template = CarouselTemplate(text="領袖營攻略手冊",actions=[
-                PostbackTemplateAction(label='遠征行程',data='遠征行程',text='遠征行程'),
-                PostbackTemplateAction(label='營地駐紮',data='營地駐紮',text='營地駐紮'),
-                PostbackTemplateAction(label='夥伴相認',data='夥伴相認',text='夥伴相認'),
-                PostbackTemplateAction(label='RPG1',data='RPG1',text='RPG1'),
-                PostbackTemplateAction(label='紙上談兵',data='紙上談兵',text='紙上談兵'),
-                PostbackTemplateAction(label='RPG2',data='RPG2',text='RPG2'),
-                PostbackTemplateAction(label='行囊準備',data='行囊準備',text='行囊準備'),
-                PostbackTemplateAction(label='???',data='???',text='???')
-            ])
-            camp_message = TemplateSendMessage(alt_text='16th_camp_info',template=camp_template)
-            line_bot_api.reply_message(event.reply_token,camp_message)
+            carousel_template_message = TemplateSendMessage(
+                    alt_text='目錄 template',
+                    template=CarouselTemplate(
+                        columns=[
+                            CarouselColumn(
+                                thumbnail_image_url='https://i.imgur.com/h4UzRit.jpg',
+                                title='領袖營攻略手冊',
+                                actions=[
+                                    MessageAction(
+                                        label='分享 bot',
+                                        text='https://line.me/R/nv/recommendOA/@vbi2716y'
+                                    ),
+                                    MessageAction(
+                                        label='PTT正妹網',
+                                        text='https://ptt-beauty-infinite-scroll.herokuapp.com/'
+                                    ),
+                                    MessageAction(
+                                        label='youtube 程式教學分享頻道',
+                                        text='https://www.youtube.com/channel/UCPhn2rCqhu0HdktsFjixahA'
+                                    )
+                                ]
+                            )
+                        ]
+                    )
+                )
+            line_bot_api.reply_message(event.reply_token, carousel_template_message)
             return 0
 
 
