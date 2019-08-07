@@ -238,39 +238,39 @@ def handle_message(event):
                                 thumbnail_image_url='https://i.imgur.com/h4UzRit.jpg',
                                 title='領袖營攻略手冊',
                                 actions=[
-                                    MessageAction(
+                                    MessageTemplateAction(
                                         label='遠征行程',
                                         test='遠征行程'
                                     ),
-                                    MessageAction(
+                                    MessageTemplateAction(
                                         label='營地駐紮',
                                         test='營地駐紮'
                                     ),
-                                    MessageAction(
+                                    MessageTemplateAction(
                                         label='營地駐紮',
                                         test='營地駐紮'
                                     ),
-                                    MessageAction(
+                                    MessageTemplateAction(
                                         label='夥伴相認',
                                         test='夥伴相認'
                                     ),                                
-                                    MessageAction(
+                                    MessageTemplateAction(
                                         label='RPG1',
                                         test='RPG1'
                                     ),
-                                    MessageAction(
+                                    MessageTemplateAction(
                                         label='紙上談兵',
                                         test='紙上談兵'
                                     ),
-                                    MessageAction(
+                                    MessageTemplateAction(
                                         label='RPG2',
                                         test='RPG2'
                                     ),
-                                    MessageAction(
+                                    MessageTemplateAction(
                                         label='行囊準備',
                                         test='行囊準備'
                                     ),
-                                     MessageAction(
+                                    MessageTemplateAction(
                                         label='???',
                                         test='???'
                                     )                                                                       
