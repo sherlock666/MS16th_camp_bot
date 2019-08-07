@@ -252,12 +252,9 @@ def handle_message(event):
                                 # callAction, separator, websiteAction
                                 SpacerComponent(size='sm'),
                                 # callAction
-                                ImageComponent(
-                                    url='https://i.imgur.com/ZvAirq6.png',
-                                    size='full',
-                                    aspect_ratio='20:13',
-                                    aspect_mode='cover',
-                                    action=MessageAction(label='LOVE 晶緻悠遊寵愛紅卡', text='LOVE 晶緻悠遊寵愛紅卡')
+                                ButtonComponent(
+
+                                    action=MessageAction(label='遠征行程', text='遠征行程')
                                 ),
                                 # separator
                                 SeparatorComponent(),
