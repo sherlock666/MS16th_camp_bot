@@ -235,44 +235,6 @@ def handle_message(event):
                     template=CarouselTemplate(
                         columns=[
                             CarouselColumn(
-                                thumbnail_image_url='https://i.imgur.com/kzi5kKy.jpg',
-                                title='選擇服務',
-                                text='請選擇',
-                                actions=[
-                                    MessageAction(
-                                        label='開始玩',
-                                        text='開始玩'
-                                    ),
-                                    URIAction(
-                                        label='影片介紹 阿肥bot',
-                                        uri='https://youtu.be/1IxtWgWxtlE'
-                                    ),
-                                    URIAction(
-                                        label='如何建立自己的 Line Bot',
-                                        uri='https://github.com/twtrubiks/line-bot-tutorial'
-                                    )
-                                ]
-                            ),
-                            CarouselColumn(
-                                thumbnail_image_url='https://i.imgur.com/DrsmtKS.jpg',
-                                title='選擇服務',
-                                text='請選擇',
-                                actions=[
-                                    MessageAction(
-                                        label='other bot',
-                                        text='imgur bot'
-                                    ),
-                                    MessageAction(
-                                        label='油價查詢',
-                                        text='油價查詢'
-                                    ),
-                                    URIAction(
-                                        label='聯絡作者',
-                                        uri='https://www.facebook.com/TWTRubiks?ref=bookmarks'
-                                    )
-                                ]
-                            ),
-                            CarouselColumn(
                                 thumbnail_image_url='https://i.imgur.com/h4UzRit.jpg',
                                 title='選擇服務',
                                 text='請選擇',
