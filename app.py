@@ -225,15 +225,15 @@ def handle_message(event):
                                 thumbnail_image_url='https://i.imgur.com/h4UzRit.jpg',
                                 title='領袖營攻略手冊',
                                 actions=[
-                                    MessageAction(
+                                    MessageTemplateAction(
                                         label='分享 bot',
                                         text='https://line.me/R/nv/recommendOA/@vbi2716y'
                                     ),
-                                    MessageAction(
+                                    MessageTemplateAction(
                                         label='PTT正妹網',
                                         text='https://ptt-beauty-infinite-scroll.herokuapp.com/'
                                     ),
-                                    MessageAction(
+                                    MessageTemplateAction(
                                         label='youtube 程式教學分享頻道',
                                         text='https://www.youtube.com/channel/UCPhn2rCqhu0HdktsFjixahA'
                                     )
