@@ -235,7 +235,7 @@ def handle_message(event):
             camp_menu_messages = ImagemapSendMessage(
                 base_url='https://i.imgur.com/xqM8bvM.png',
                 alt_text='this is an imagemap',
-                base_size=BaseSize(width=1040, height=700),
+                base_size=BaseSize(width=1040, height=1040),
                 actions=[
                     #Left 1
                     MessageImagemapAction(
