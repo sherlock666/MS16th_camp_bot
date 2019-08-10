@@ -230,101 +230,70 @@ def handle_message(event):
             return 0
 
         if event.message.text == "領袖營":
-            camp_main_bubble = BubbleContainer(
-                direction='ltr',
-                body=BoxComponent(
-                    layout='vertical',
-                    contents=[
-                        # title
-                        TextComponent(text='領袖營攻略手冊', weight='bold', size='xl',align="center",color="#E37B18"),
-                        # info
-                    ],
-                ),
-                footer=BoxComponent(
-                    layout='vertical',
-                    spacing='sm',
-                    contents=[
-                        # first row
-                        BoxComponent(
-                            layout='horizontal',
-                            spacing='sm',
-                            contents=[
-                                # callAction, separator, websiteAction
-                                SpacerComponent(size='sm'),
-                                # callAction
-                                ButtonComponent(
-                                    action=MessageAction(label='遠征行程', text='遠征行程')
-                                ),
-                                # separator
-                                SeparatorComponent(),
-                                # websiteAction
-                                ButtonComponent(
-                                    action=MessageAction(label='營地駐紮', text='營地駐紮')
-                                )
-                            ]
-                        ),
-                        # second row
-                        BoxComponent(
-                            layout='horizontal',
-                            spacing='sm',
-                            contents=[
-                                # callAction, separator, websiteAction
-                                SpacerComponent(size='sm'),
-                                # callAction
-                                ButtonComponent(
-                                    action=MessageAction(label='夥伴相認', text='夥伴相認')
-                                ),
-                                # separator
-                                SeparatorComponent(),
-                                # websiteAction
-                                ButtonComponent(
-                                    action=MessageAction(label='戰區概況', text='戰區概況')
-                                )
-                            ]
-                        ),
-                        # third row
-                        BoxComponent(
-                            layout='horizontal',
-                            spacing='sm',
-                            contents=[
-                                # callAction, separator, websiteAction
-                                SpacerComponent(size='sm'),
-                                # callAction
-                                ButtonComponent(
-                                    action=MessageAction(label='RPG1', text='RPG1')
-                                ),
-                                # separator
-                                SeparatorComponent(),
-                                # websiteAction
-                                ButtonComponent(
-                                    action=MessageAction(label='紙上談兵', text='紙上談兵')
-                                )
-                            ]
-                        ),
-                            # forth row
-                        BoxComponent(
-                            layout='horizontal',
-                            spacing='sm',
-                            contents=[
-                                # callAction, separator, websiteAction
-                                SpacerComponent(size='sm'),
-                                # callAction
-                                ButtonComponent(
-                                    action=MessageAction(label='RPG2', text='RPG2')
-                                ),
-                                # separator
-                                SeparatorComponent(),
-                                # websiteAction
-                                ButtonComponent(
-                                    action=MessageAction(label='行囊準備', text='行囊準備')
-                                )
-                            ]
-                        ),
-                    ]
-                ),
+            camp_menu_messages = ImagemapSendMessage(
+                base_url='https://raw.githubusercontent.com/sherlock666/LineBot-QNAmaker/master/button_template/16th_camp_menu.png',
+                alt_text='this is an imagemap',
+                base_size=BaseSize(width=1040, height=1040),
+                actions=[
+                    #Left 1
+                    MessageImagemapAction(
+                        text='行囊準備',
+                        area=ImagemapArea(
+                            x=0, y=252, width=535, height=135
+                        )
+                    ),
+                    #Right 1
+                    MessageImagemapAction(
+                        text='遠征行程',
+                        area=ImagemapArea(
+                            x=533, y=119, width=507, height=134
+                        )
+                    ),
+                    #Left 2
+                    MessageImagemapAction(
+                        text='營地駐紮',
+                        area=ImagemapArea(
+                            x=0, y=252, width=535, height=145
+                        )
+                    ),
+                    #Right 2
+                    MessageImagemapAction(
+                        text='夥伴相認',
+                        area=ImagemapArea(
+                            x=534, y=251, width=506, height=146
+                        )
+                    ),
+                    #Left 3
+                    MessageImagemapAction(
+                        text='戰區概況',
+                        area=ImagemapArea(
+                            x=0, y=395, width=535, height=135
+                        )
+                    ),
+                    #Right 3
+                    MessageImagemapAction(
+                        text='RPG1',
+                        area=ImagemapArea(
+                            x=533, y=395, width=507, height=134
+                        )
+                    ),
+                    #Left 4   
+                    MessageImagemapAction(
+                        text='RPG2',
+                        area=ImagemapArea(
+                            x=0, y=528, width=535, height=151
+                        )
+                    ),
+                    #Right 4                                                          
+                    MessageImagemapAction(
+                        text='紙上談兵',
+                        area=ImagemapArea(
+                            x=533, y=528, width=505, height=151
+                        )
+                    )
+                ]
             )
-            flex_template = FlexSendMessage(alt_text="hello", contents=camp_main_bubble)
-            line_bot_api.reply_message(event.reply_token,flex_template)
+            line_bot_api.reply_message(event.reply_token,camp_menu_messages)
             return 0
 
 
