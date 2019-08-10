@@ -233,7 +233,7 @@ def handle_message(event):
 
         if event.message.text == "領袖營":
             camp_menu_messages = ImagemapSendMessage(
-                base_url='https://i.imgur.com/j7WRnJ9.png',
+                base_url='https://img.onl/M90cRO',
                 alt_text='this is an imagemap',
                 base_size=BaseSize(width=1040, height=1040),
                 actions=[
@@ -241,7 +241,7 @@ def handle_message(event):
                     MessageImagemapAction(
                         text='行囊準備',
                         area=ImagemapArea(
-                            x=0, y=252, width=535, height=135
+                            x=0, y=119, width=535, height=135
                         )
                     ),
                     #Right 1
