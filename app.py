@@ -231,10 +231,12 @@ def handle_message(event):
             line_bot_api.reply_message(event.reply_token,TextSendMessage(text=content))
             return 0
 
+############### 領袖營Menu ###############
+
         if event.message.text == "領袖營":
             camp_menu_messages = ImagemapSendMessage(
                 base_url='https://i.imgur.com/3FiyO5o.png',
-                alt_text='this is an imagemap',
+                alt_text='領袖營攻略手冊',
                 base_size=BaseSize(width=1040, height=1040),
                 actions=[
                     #Left 1
@@ -297,9 +299,74 @@ def handle_message(event):
             )
             line_bot_api.reply_message(event.reply_token,camp_menu_messages)
             return 0
+########## 領袖營回覆 ##########
+        if event.message.text == "行囊準備":
+            image_message = ImageSendMessage(
+                original_content_url='https://imgur.com/zBXhDLK',
+                preview_image_url='https://imgur.com/zBXhDLK'
+            )
+            line_bot_api.reply_message(event.reply_token, image_message)
+            return 0
+        if event.message.text == "遠征行程":
+            image_message_day_1 = ImageSendMessage(
+                original_content_url='https://imgur.com/AC2ISii',
+                preview_image_url='https://imgur.com/AC2ISii'
+            )
+            image_message_day_2 = ImageSendMessage(
+                original_content_url='https://imgur.com/oVg1yiE',
+                preview_image_url='https://imgur.com/oVg1yiE'
+            )            
+            line_bot_api.reply_message(event.reply_token, image_message_day_1,image_message_day_2)
+            return 0
+        if event.message.text == "營地駐紮":
+            image_message = ImageSendMessage(
+                original_content_url='https://imgur.com/zBXhDLK',
+                preview_image_url='https://imgur.com/zBXhDLK'
+            )
+            line_bot_api.reply_message(event.reply_token, image_message)
+            return 0
+        if event.message.text == "夥伴相認":
+            image_message = ImageSendMessage(
+                original_content_url='https://imgur.com/zBXhDLK',
+                preview_image_url='https://imgur.com/zBXhDLK'
+            )
+            line_bot_api.reply_message(event.reply_token, image_message)
+            return 0
+        if event.message.text == "戰區概況":
+            image_message = ImageSendMessage(
+                original_content_url='https://imgur.com/zBXhDLK',
+                preview_image_url='https://imgur.com/zBXhDLK'
+            )
+            line_bot_api.reply_message(event.reply_token, image_message)
+            return 0
+        if event.message.text == "RPG1":
+            image_message = ImageSendMessage(
+                original_content_url='https://imgur.com/zBXhDLK',
+                preview_image_url='https://imgur.com/zBXhDLK'
+            )
+            line_bot_api.reply_message(event.reply_token, image_message)
+            return 0
+        if event.message.text == "RPG2":
+            image_message = ImageSendMessage(
+                original_content_url='https://imgur.com/zBXhDLK',
+                preview_image_url='https://imgur.com/zBXhDLK'
+            )
+            line_bot_api.reply_message(event.reply_token, image_message)
+            return 0
+        if event.message.text == "紙上談兵":
+            image_message = ImageSendMessage(
+                original_content_url='https://imgur.com/zBXhDLK',
+                preview_image_url='https://imgur.com/zBXhDLK'
+            )
+            line_bot_api.reply_message(event.reply_token, image_message)
+            return 0
 
 
 
+
+
+
+###############  ###############
 
 ######## 客製功能區 ########                
     else:
