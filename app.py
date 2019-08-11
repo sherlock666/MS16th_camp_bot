@@ -302,8 +302,8 @@ def handle_message(event):
 ########## 領袖營回覆 ##########
         if event.message.text == "行囊準備":
             image_message = ImageSendMessage(
-                original_content_url='https://imgur.com/zBXhDLK',
-                preview_image_url='https://imgur.com/zBXhDLK'
+                original_content_url='https://i.imgur.com/zBXhDLK.png',
+                preview_image_url='https://i.imgur.com/zBXhDLK.png'
             )
             line_bot_api.reply_message(event.reply_token, image_message)
             return 0
@@ -316,47 +316,47 @@ def handle_message(event):
                 original_content_url='https://imgur.com/oVg1yiE',
                 preview_image_url='https://imgur.com/oVg1yiE'
             )            
-            line_bot_api.reply_message(event.reply_token, image_message_day_1,image_message_day_2)
+            line_bot_api.reply_message(event.reply_token, [image_message_day_1,image_message_day_2])
             return 0
         if event.message.text == "營地駐紮":
             image_message = ImageSendMessage(
-                original_content_url='https://imgur.com/zBXhDLK',
-                preview_image_url='https://imgur.com/zBXhDLK'
+                original_content_url='https://i.imgur.com/zBXhDLK.png',
+                preview_image_url='https://i.imgur.com/zBXhDLK.png'
             )
             line_bot_api.reply_message(event.reply_token, image_message)
             return 0
         if event.message.text == "夥伴相認":
             image_message = ImageSendMessage(
-                original_content_url='https://imgur.com/zBXhDLK',
-                preview_image_url='https://imgur.com/zBXhDLK'
+                original_content_url='https://i.imgur.com/zBXhDLK.png',
+                preview_image_url='https://i.imgur.com/zBXhDLK.png'
             )
             line_bot_api.reply_message(event.reply_token, image_message)
             return 0
         if event.message.text == "戰區概況":
             image_message = ImageSendMessage(
-                original_content_url='https://imgur.com/zBXhDLK',
-                preview_image_url='https://imgur.com/zBXhDLK'
+                original_content_url='https://i.imgur.com/zBXhDLK.png',
+                preview_image_url='https://i.imgur.com/zBXhDLK.png'
             )
             line_bot_api.reply_message(event.reply_token, image_message)
             return 0
         if event.message.text == "RPG1":
             image_message = ImageSendMessage(
-                original_content_url='https://imgur.com/zBXhDLK',
-                preview_image_url='https://imgur.com/zBXhDLK'
+                original_content_url='https://i.imgur.com/zBXhDLK.png',
+                preview_image_url='https://i.imgur.com/zBXhDLK.png'
             )
             line_bot_api.reply_message(event.reply_token, image_message)
             return 0
         if event.message.text == "RPG2":
             image_message = ImageSendMessage(
-                original_content_url='https://imgur.com/zBXhDLK',
-                preview_image_url='https://imgur.com/zBXhDLK'
+                original_content_url='https://i.imgur.com/zBXhDLK.png',
+                preview_image_url='https://i.imgur.com/zBXhDLK.png'
             )
             line_bot_api.reply_message(event.reply_token, image_message)
             return 0
         if event.message.text == "紙上談兵":
             image_message = ImageSendMessage(
-                original_content_url='https://imgur.com/zBXhDLK',
-                preview_image_url='https://imgur.com/zBXhDLK'
+                original_content_url='https://i.imgur.com/zBXhDLK.png',
+                preview_image_url='https://i.imgur.com/zBXhDLK.png'
             )
             line_bot_api.reply_message(event.reply_token, image_message)
             return 0
