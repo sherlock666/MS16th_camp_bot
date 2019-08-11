@@ -309,12 +309,12 @@ def handle_message(event):
             return 0
         if event.message.text == "遠征行程":
             image_message_day_1 = ImageSendMessage(
-                original_content_url='https://imgur.com/AC2ISii',
-                preview_image_url='https://imgur.com/AC2ISii'
+                original_content_url='https://i.imgur.com/AC2ISii.png',
+                preview_image_url='https://i.imgur.com/AC2ISii.png'
             )
             image_message_day_2 = ImageSendMessage(
-                original_content_url='https://imgur.com/oVg1yiE',
-                preview_image_url='https://imgur.com/oVg1yiE'
+                original_content_url='https://i.imgur.com/oVg1yiE.png',
+                preview_image_url='https://i.imgur.com/oVg1yiE.png'
             )            
             line_bot_api.reply_message(event.reply_token, [image_message_day_1,image_message_day_2])
             return 0
