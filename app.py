@@ -235,7 +235,7 @@ def handle_message(event):
 
         if event.message.text == "領袖營":
             camp_menu_messages = ImagemapSendMessage(
-                base_url='https://i.imgur.com/3FiyO5o.png',
+                base_url='https://i.imgur.com/YGOBDKj.png',
                 alt_text='領袖營攻略手冊',
                 base_size=BaseSize(width=1040, height=1040),
                 actions=[
@@ -283,7 +283,7 @@ def handle_message(event):
                     ),
                     #Left 4   
                     MessageImagemapAction(
-                        text='RPG2',
+                        text='青金石戰役',
                         area=ImagemapArea(
                             x=0, y=528, width=535, height=151
                         )
@@ -299,7 +299,8 @@ def handle_message(event):
             )
             line_bot_api.reply_message(event.reply_token,camp_menu_messages)
             return 0
-########## 領袖營回覆 ##########
+
+############### 行囊準備Menu ###############
         if event.message.text == "行囊準備":
             image_message = ImageSendMessage(
                 original_content_url='https://i.imgur.com/zBXhDLK.png',
@@ -307,6 +308,8 @@ def handle_message(event):
             )
             line_bot_api.reply_message(event.reply_token, image_message)
             return 0
+
+############### 遠征行程Menu ###############
         if event.message.text == "遠征行程":
             image_message_day_1 = ImageSendMessage(
                 original_content_url='https://i.imgur.com/AC2ISii.png',
@@ -318,6 +321,8 @@ def handle_message(event):
             )            
             line_bot_api.reply_message(event.reply_token, [image_message_day_1,image_message_day_2])
             return 0
+
+############### 營地駐紮Menu ###############
         if event.message.text == "營地駐紮":
             image_message = ImageSendMessage(
                 original_content_url='https://i.imgur.com/zBXhDLK.png',
@@ -325,13 +330,62 @@ def handle_message(event):
             )
             line_bot_api.reply_message(event.reply_token, image_message)
             return 0
+
+############### 夥伴相認Menu ###############
         if event.message.text == "夥伴相認":
-            image_message = ImageSendMessage(
-                original_content_url='https://i.imgur.com/zBXhDLK.png',
-                preview_image_url='https://i.imgur.com/zBXhDLK.png'
+            camp_menu_messages = ImagemapSendMessage(
+                base_url='https://i.imgur.com/irvh6C7.png',
+                alt_text='夥伴相認Menu',
+                base_size=BaseSize(width=1040, height=1040),
+                actions=[
+                    #Left 1
+                    MessageImagemapAction(
+                        text='夥伴相認-第一組',
+                        area=ImagemapArea(
+                            x=166, y=207, width=315, height=115
+                        )
+                    ),
+                    #Right 1
+                    MessageImagemapAction(
+                        text='夥伴相認-第二組',
+                        area=ImagemapArea(
+                            x=564, y=207, width=312, height=117
+                        )
+                    ),
+                    #Left 2
+                    MessageImagemapAction(
+                        text='夥伴相認-第三組',
+                        area=ImagemapArea(
+                            x=164, y=382, width=315, height=118
+                        )
+                    ),
+                    #Right 2
+                    MessageImagemapAction(
+                        text='夥伴相認-第四組',
+                        area=ImagemapArea(
+                            x=567, y=383, width=311, height=118
+                        )
+                    ),
+                    #Left 3
+                    MessageImagemapAction(
+                        text='夥伴相認-第五組',
+                        area=ImagemapArea(
+                            x=164, y=568, width=317, height=116
+                        )
+                    ),
+                    #Right 3
+                    MessageImagemapAction(
+                        text='夥伴相認-第六組',
+                        area=ImagemapArea(
+                            x=564, y=564, width=313, height=115
+                        )
+                    )
+                ]
             )
-            line_bot_api.reply_message(event.reply_token, image_message)
+            line_bot_api.reply_message(event.reply_token,camp_menu_messages)
             return 0
+
+############### 戰區概況Menu ###############
         if event.message.text == "戰區概況":
             image_message = ImageSendMessage(
                 original_content_url='https://i.imgur.com/zBXhDLK.png',
@@ -339,6 +393,8 @@ def handle_message(event):
             )
             line_bot_api.reply_message(event.reply_token, image_message)
             return 0
+
+############### RPG1Menu ###############
         if event.message.text == "RPG1":
             image_message = ImageSendMessage(
                 original_content_url='https://i.imgur.com/zBXhDLK.png',
@@ -346,13 +402,17 @@ def handle_message(event):
             )
             line_bot_api.reply_message(event.reply_token, image_message)
             return 0
-        if event.message.text == "RPG2":
+
+############### 青金石戰役Menu ###############
+        if event.message.text == "青金石戰役":
             image_message = ImageSendMessage(
                 original_content_url='https://i.imgur.com/zBXhDLK.png',
                 preview_image_url='https://i.imgur.com/zBXhDLK.png'
             )
             line_bot_api.reply_message(event.reply_token, image_message)
             return 0
+
+############### 商業競賽Menu ###############
         if event.message.text == "紙上談兵":
             image_message = ImageSendMessage(
                 original_content_url='https://i.imgur.com/zBXhDLK.png',
@@ -360,11 +420,6 @@ def handle_message(event):
             )
             line_bot_api.reply_message(event.reply_token, image_message)
             return 0
-
-
-
-
-
 
 ###############  ###############
 
