@@ -472,6 +472,108 @@ def handle_message(event):
             )
             line_bot_api.reply_message(event.reply_token,camp_menu_messages)
             return 0
+        if event.message.text == "rpg1 1-2":
+            camp_menu_messages = ImagemapSendMessage(
+                base_url='https://i.imgur.com/QGsmjsA.png',
+                alt_text='rpg1 1-2',
+                base_size=BaseSize(width=1040, height=1040),
+                actions=[
+                    #just for full size image
+                    MessageImagemapAction(
+                        text='rpg1 1-2 ',
+                        area=ImagemapArea(
+                            x=1034, y=1034, width=1, height=1
+                        )
+                    )
+                ]
+            )
+            line_bot_api.reply_message(event.reply_token,camp_menu_messages)
+            return 0
+        if event.message.text == "rpg1 2-1":
+            camp_menu_messages = ImagemapSendMessage(
+                base_url='https://i.imgur.com/HXyZoqO.png',
+                alt_text='rpg1 2-1',
+                base_size=BaseSize(width=1040, height=1040),
+                actions=[
+                    #just for full size image
+                    MessageImagemapAction(
+                        text='rpg1 2-1 ',
+                        area=ImagemapArea(
+                            x=1034, y=1034, width=1, height=1
+                        )
+                    )
+                ]
+            )
+            line_bot_api.reply_message(event.reply_token,camp_menu_messages)
+            return 0
+        if event.message.text == "rpg1 2-2":
+            camp_menu_messages = ImagemapSendMessage(
+                base_url='https://i.imgur.com/auHSbXi.png',
+                alt_text='rpg1 2-2',
+                base_size=BaseSize(width=1040, height=1040),
+                actions=[
+                    #just for full size image
+                    MessageImagemapAction(
+                        text='rpg1 2-2 ',
+                        area=ImagemapArea(
+                            x=1034, y=1034, width=1, height=1
+                        )
+                    )
+                ]
+            )
+            line_bot_api.reply_message(event.reply_token,camp_menu_messages)
+            return 0
+        if event.message.text == "rpg1 2-4":
+            camp_menu_messages = ImagemapSendMessage(
+                base_url='https://i.imgur.com/O3qF4pf.png',
+                alt_text='rpg1 2-4',
+                base_size=BaseSize(width=1040, height=1040),
+                actions=[
+                    #just for full size image
+                    MessageImagemapAction(
+                        text='rpg1 2-4 ',
+                        area=ImagemapArea(
+                            x=1034, y=1034, width=1, height=1
+                        )
+                    )
+                ]
+            )
+            line_bot_api.reply_message(event.reply_token,camp_menu_messages)
+            return 0
+        if event.message.text == "rpg1 3":
+            camp_menu_messages = ImagemapSendMessage(
+                base_url='https://i.imgur.com/yXFI26T.png',
+                alt_text='rpg1 3',
+                base_size=BaseSize(width=1040, height=1040),
+                actions=[
+                    #just for full size image
+                    MessageImagemapAction(
+                        text='rpg1 3 ',
+                        area=ImagemapArea(
+                            x=1034, y=1034, width=1, height=1
+                        )
+                    )
+                ]
+            )
+            line_bot_api.reply_message(event.reply_token,camp_menu_messages)
+            return 0
+        if event.message.text == "rpg1 5":
+            camp_menu_messages = ImagemapSendMessage(
+                base_url='https://i.imgur.com/fpTFt9w.png',
+                alt_text='rpg1 5',
+                base_size=BaseSize(width=1040, height=1040),
+                actions=[
+                    #just for full size image
+                    MessageImagemapAction(
+                        text='rpg1 5 ',
+                        area=ImagemapArea(
+                            x=1034, y=1034, width=1, height=1
+                        )
+                    )
+                ]
+            )
+            line_bot_api.reply_message(event.reply_token,camp_menu_messages)
+            return 0
 
 ############### rpg2  ###############
 
