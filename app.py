@@ -385,8 +385,17 @@ def handle_message(event):
             line_bot_api.reply_message(event.reply_token,camp_menu_messages)
             return 0
 
-############### 戰區概況Menu ###############
-        if event.message.text == "戰區概況":
+            ##### 小組內容 #####
+
+        if event.message.text == "夥伴相認-第一組":
+            image_message = ImageSendMessage(
+                original_content_url='https://i.imgur.com/zBXhDLK.png',
+                preview_image_url='https://i.imgur.com/zBXhDLK.png'
+            )
+            line_bot_api.reply_message(event.reply_token, image_message)
+            return 0      
+
+        if event.message.text == "夥伴相認-第二組":
             image_message = ImageSendMessage(
                 original_content_url='https://i.imgur.com/zBXhDLK.png',
                 preview_image_url='https://i.imgur.com/zBXhDLK.png'
@@ -394,22 +403,136 @@ def handle_message(event):
             line_bot_api.reply_message(event.reply_token, image_message)
             return 0
 
-############### RPG1Menu ###############
-        if event.message.text == "RPG1":
+        if event.message.text == "夥伴相認-第三組":
             image_message = ImageSendMessage(
                 original_content_url='https://i.imgur.com/zBXhDLK.png',
                 preview_image_url='https://i.imgur.com/zBXhDLK.png'
             )
             line_bot_api.reply_message(event.reply_token, image_message)
+            return 0
+
+        if event.message.text == "夥伴相認-第四組":
+            image_message = ImageSendMessage(
+                original_content_url='https://i.imgur.com/zBXhDLK.png',
+                preview_image_url='https://i.imgur.com/zBXhDLK.png'
+            )
+            line_bot_api.reply_message(event.reply_token, image_message)
+            return 0
+
+        if event.message.text == "夥伴相認-第五組":
+            image_message = ImageSendMessage(
+                original_content_url='https://i.imgur.com/zBXhDLK.png',
+                preview_image_url='https://i.imgur.com/zBXhDLK.png'
+            )
+            line_bot_api.reply_message(event.reply_token, image_message)
+            return 0
+
+        if event.message.text == "夥伴相認-第六組":
+            image_message = ImageSendMessage(
+                original_content_url='https://i.imgur.com/zBXhDLK.png',
+                preview_image_url='https://i.imgur.com/zBXhDLK.png'
+            )
+            line_bot_api.reply_message(event.reply_token, image_message)
+            return 0
+
+
+############### 戰區概況Menu ###############
+        if event.message.text == "戰區概況":
+            camp_menu_messages = ImagemapSendMessage(
+                base_url='https://i.imgur.com/zBXhDLK.png',
+                alt_text='戰區概況Menu',
+                base_size=BaseSize(width=1040, height=1040),
+                actions=[
+                    #Left 1
+                    MessageImagemapAction(
+                        text='夥伴相認-第一組',
+                        area=ImagemapArea(
+                            x=166, y=207, width=315, height=115
+                        )
+                    ),
+                    #Right 3
+                    MessageImagemapAction(
+                        text='夥伴相認-第六組',
+                        area=ImagemapArea(
+                            x=564, y=564, width=313, height=115
+                        )
+                    )
+                ]
+            )
+            line_bot_api.reply_message(event.reply_token,camp_menu_messages)
+            return 0
+############### rgp1  ###############
+       if event.message.text == "rpg1 1-1":
+            camp_menu_messages = ImagemapSendMessage(
+                base_url='https://i.imgur.com/22r7gDo.png',
+                alt_text='rpg1 1-1',
+                base_size=BaseSize(width=1040, height=1040),
+                actions=[
+                    #just for full size image
+                    MessageImagemapAction(
+                        text='rpg1 1-1 ',
+                        area=ImagemapArea(
+                            x=1034, y=1034, width=1, height=1
+                        )
+                    )
+                ]
+            )
+            line_bot_api.reply_message(event.reply_token,camp_menu_messages)
+            return 0
+
+############### rpg2  ###############
+
+
+############### RPG1Menu ###############
+        if event.message.text == "RPG1":
+           camp_menu_messages = ImagemapSendMessage(
+                base_url='https://i.imgur.com/zBXhDLK.png',
+                alt_text='RPG!Menu',
+                base_size=BaseSize(width=1040, height=1040),
+                actions=[
+                    #Left 1
+                    MessageImagemapAction(
+                        text='夥伴相認-第一組',
+                        area=ImagemapArea(
+                            x=166, y=207, width=315, height=115
+                        )
+                    ),
+                    #Right 3
+                    MessageImagemapAction(
+                        text='夥伴相認-第六組',
+                        area=ImagemapArea(
+                            x=564, y=564, width=313, height=115
+                        )
+                    )
+                ]
+            )
+            line_bot_api.reply_message(event.reply_token,camp_menu_messages)
             return 0
 
 ############### 青金石戰役Menu ###############
         if event.message.text == "青金石戰役":
-            image_message = ImageSendMessage(
-                original_content_url='https://i.imgur.com/zBXhDLK.png',
-                preview_image_url='https://i.imgur.com/zBXhDLK.png'
+           camp_menu_messages = ImagemapSendMessage(
+                base_url='https://i.imgur.com/zBXhDLK.png',
+                alt_text='青金石戰役Menu',
+                base_size=BaseSize(width=1040, height=1040),
+                actions=[
+                    #Left 1
+                    MessageImagemapAction(
+                        text='夥伴相認-第一組',
+                        area=ImagemapArea(
+                            x=166, y=207, width=315, height=115
+                        )
+                    ),
+                    #Right 3
+                    MessageImagemapAction(
+                        text='夥伴相認-第六組',
+                        area=ImagemapArea(
+                            x=564, y=564, width=313, height=115
+                        )
+                    )
+                ]
             )
-            line_bot_api.reply_message(event.reply_token, image_message)
+            line_bot_api.reply_message(event.reply_token,camp_menu_messages)
             return 0
 
 ############### 商業競賽Menu ###############
