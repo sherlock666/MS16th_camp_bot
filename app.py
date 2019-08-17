@@ -455,7 +455,7 @@ def handle_message(event):
             line_bot_api.reply_message(event.reply_token,camp_menu_messages)
             return 0
 ############### rgp1  ###############
-       if event.message.text == "rpg1 1-1":
+        if event.message.text == "rpg1 1-1":
             camp_menu_messages = ImagemapSendMessage(
                 base_url='https://i.imgur.com/22r7gDo.png',
                 alt_text='rpg1 1-1',
