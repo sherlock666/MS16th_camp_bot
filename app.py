@@ -439,22 +439,15 @@ def handle_message(event):
 ############### 戰區概況Menu ###############
         if event.message.text == "戰區概況":
             camp_menu_messages = ImagemapSendMessage(
-                base_url='https://i.imgur.com/zBXhDLK.png',
+                base_url='https://i.imgur.com/iFEKbkV.png',
                 alt_text='戰區概況Menu',
                 base_size=BaseSize(width=1040, height=1040),
                 actions=[
-                    #Left 1
+                    #Currently just for full size image test
                     MessageImagemapAction(
-                        text='夥伴相認-第一組',
+                        text='rpg1 1-1',
                         area=ImagemapArea(
-                            x=166, y=207, width=315, height=115
-                        )
-                    ),
-                    #Right 3
-                    MessageImagemapAction(
-                        text='夥伴相認-第六組',
-                        area=ImagemapArea(
-                            x=564, y=564, width=313, height=115
+                            x=1034, y=1034, width=1, height=1
                         )
                     )
                 ]
