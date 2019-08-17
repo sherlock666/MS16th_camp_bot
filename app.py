@@ -478,7 +478,7 @@ def handle_message(event):
 
 ############### RPG1Menu ###############
         if event.message.text == "RPG1":
-           camp_menu_messages = ImagemapSendMessage(
+            camp_menu_messages = ImagemapSendMessage(
                 base_url='https://i.imgur.com/zBXhDLK.png',
                 alt_text='RPG!Menu',
                 base_size=BaseSize(width=1040, height=1040),
@@ -504,7 +504,7 @@ def handle_message(event):
 
 ############### 青金石戰役Menu ###############
         if event.message.text == "青金石戰役":
-           camp_menu_messages = ImagemapSendMessage(
+            camp_menu_messages = ImagemapSendMessage(
                 base_url='https://i.imgur.com/zBXhDLK.png',
                 alt_text='青金石戰役Menu',
                 base_size=BaseSize(width=1040, height=1040),
