@@ -556,7 +556,7 @@ def handle_message(event):
 
         if event.message.text == "夥伴相認-第六組":
             image_map_messages = ImagemapSendMessage(
-                base_url='https://imgur.com/3IyMawy.png',
+                base_url='https:/i.imgur.com/3IyMawy.png',
                 alt_text='team 6',
                 base_size=BaseSize(width=1040, height=1040),
                 actions=[
