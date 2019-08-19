@@ -262,56 +262,56 @@ def handle_message(event):
                     MessageImagemapAction(
                         text='行囊準備',
                         area=ImagemapArea(
-                            x=0, y=136, width=535, height=104
+                            x=0, y=128, width=535, height=116
                         )
                     ),
                     #Right 1
                     MessageImagemapAction(
                         text='遠征行程',
                         area=ImagemapArea(
-                            x=533, y=136, width=507, height=104
+                            x=533, y=128, width=535, height=116
                         )
                     ),
                     #Left 2
                     MessageImagemapAction(
                         text='營地駐紮',
                         area=ImagemapArea(
-                            x=0, y=282, width=535, height=104
+                            x=0, y=272, width=535, height=117
                         )
                     ),
                     #Right 2
                     MessageImagemapAction(
                         text='夥伴相認',
                         area=ImagemapArea(
-                            x=534, y=282, width=507, height=104
+                            x=533, y=272, width=535, height=117
                         )
                     ),
                     #Left 3
                     MessageImagemapAction(
                         text='戰區概況',
                         area=ImagemapArea(
-                            x=0, y=409, width=535, height=104
+                            x=0, y=407, width=535, height=117
                         )
                     ),
                     #Right 3
                     MessageImagemapAction(
                         text='RPG1',
                         area=ImagemapArea(
-                            x=533, y=409, width=507, height=104
+                            x=533, y=407, width=535, height=117
                         )
                     ),
                     #Left 4   
                     MessageImagemapAction(
                         text='青金石戰役',
                         area=ImagemapArea(
-                            x=0, y=556, width=535, height=104
+                            x=0, y=548, width=537, height=117
                         )
                     ),
                     #Right 4                                                          
                     MessageImagemapAction(
-                        text='紙上談兵',
+                        text='商業競賽',
                         area=ImagemapArea(
-                            x=533, y=556, width=507, height=104
+                            x=533, y=548, width=537, height=117
                         )
                     )
                 ]
@@ -973,7 +973,7 @@ def handle_message(event):
             line_bot_api.reply_message(event.reply_token,[image_map_messages_1,image_map_messages_2])
             return 0  
 ############### 商業競賽Menu ###############
-        if event.message.text == "紙上談兵":
+        if event.message.text == "商業競賽":
             image_map_messages_1 = ImagemapSendMessage(
                 base_url='https://i.imgur.com/g2nqShi.png',
                 alt_text='commercial contest rule',
