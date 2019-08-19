@@ -311,24 +311,82 @@ def handle_message(event):
 
 ############### 遠征行程Menu ###############
         if event.message.text == "遠征行程":
-            image_message_day_1 = ImageSendMessage(
-                original_content_url='https://i.imgur.com/AC2ISii.png',
-                preview_image_url='https://i.imgur.com/AC2ISii.png'
-            )
-            image_message_day_2 = ImageSendMessage(
-                original_content_url='https://i.imgur.com/oVg1yiE.png',
-                preview_image_url='https://i.imgur.com/oVg1yiE.png'
+            image_map_messages_1 = ImagemapSendMessage(
+                base_url='https://i.imgur.com/AC2ISii.png',
+                alt_text='day 1',
+                base_size=BaseSize(width=1040, height=1040),
+                actions=[
+                    #just for full size image
+                    MessageImagemapAction(
+                        text='day 1 ',
+                        area=ImagemapArea(
+                            x=1034, y=1034, width=1, height=1
+                        )
+                    )
+                ]
             )            
-            line_bot_api.reply_message(event.reply_token, [image_message_day_1,image_message_day_2])
+            image_map_messages_2 = ImagemapSendMessage(
+                base_url='https://i.imgur.com/oVg1yiE.png',
+                alt_text='day 2',
+                base_size=BaseSize(width=1040, height=1040),
+                actions=[
+                    #just for full size image
+                    MessageImagemapAction(
+                        text='day 2 ',
+                        area=ImagemapArea(
+                            x=1034, y=1034, width=1, height=1
+                        )
+                    )
+                ]
+            )                       
+            line_bot_api.reply_message(event.reply_token, [image_map_messages_1,image_map_messages_2])
             return 0
 
 ############### 營地駐紮Menu ###############
         if event.message.text == "營地駐紮":
-            image_message = ImageSendMessage(
-                original_content_url='https://i.imgur.com/zBXhDLK.png',
-                preview_image_url='https://i.imgur.com/zBXhDLK.png'
+            image_map_messages_1 = ImagemapSendMessage(
+                base_url='https://i.imgur.com/gDNXswe.png',
+                alt_text='roomtype 1',
+                base_size=BaseSize(width=1040, height=1040),
+                actions=[
+                    #just for full size image
+                    MessageImagemapAction(
+                        text='roomtype 1 ',
+                        area=ImagemapArea(
+                            x=1034, y=1034, width=1, height=1
+                        )
+                    )
+                ]
             )
-            line_bot_api.reply_message(event.reply_token, image_message)
+            image_map_messages_2 = ImagemapSendMessage(
+                base_url='https://i.imgur.com/RXjZW1X.png',
+                alt_text='roomtype 2',
+                base_size=BaseSize(width=1040, height=1040),
+                actions=[
+                    #just for full size image
+                    MessageImagemapAction(
+                        text='roomtype 2 ',
+                        area=ImagemapArea(
+                            x=1034, y=1034, width=1, height=1
+                        )
+                    )
+                ]
+            )
+            image_map_messages_3 = ImagemapSendMessage(
+                base_url='https://i.imgur.com/B9VZ0Y1.png',
+                alt_text='roomtype 3',
+                base_size=BaseSize(width=1040, height=1040),
+                actions=[
+                    #just for full size image
+                    MessageImagemapAction(
+                        text='roomtype 3 ',
+                        area=ImagemapArea(
+                            x=1034, y=1034, width=1, height=1
+                        )
+                    )
+                ]
+            )            
+            line_bot_api.reply_message(event.reply_token,[image_map_messages_1,image_map_messages_2,image_map_messages_3])
             return 0
 
 ############### 夥伴相認Menu ###############
@@ -516,7 +574,7 @@ def handle_message(event):
                         )
                     ),
                     MessageImagemapAction(
-                        text='rpg2 2-1',
+                        text='rpg1 2-1',
                         area=ImagemapArea(
                             x=878, y=185, width=155, height=67
                         )
@@ -580,7 +638,7 @@ def handle_message(event):
             )
             line_bot_api.reply_message(event.reply_token,image_map_messages)
             return 0
-############### rgp1  ###############
+############### rpg1  ###############
         if event.message.text == "rpg1 1-1":
             image_map_messages = ImagemapSendMessage(
                 base_url='https://i.imgur.com/22r7gDo.png',
@@ -897,11 +955,112 @@ def handle_message(event):
             return 0  
 ############### 商業競賽Menu ###############
         if event.message.text == "紙上談兵":
-            image_message = ImageSendMessage(
-                original_content_url='https://i.imgur.com/zBXhDLK.png',
-                preview_image_url='https://i.imgur.com/zBXhDLK.png'
+            image_map_messages_1 = ImagemapSendMessage(
+                base_url='https://i.imgur.com/g2nqShi.png',
+                alt_text='commercial contest rule',
+                base_size=BaseSize(width=1040, height=1040),
+                actions=[
+                    #just for full size image
+                    MessageImagemapAction(
+                        text='commercial contest rule ',
+                        area=ImagemapArea(
+                            x=1034, y=1034, width=1, height=1
+                        )
+                    )
+                ]
             )
-            line_bot_api.reply_message(event.reply_token, image_message)
+            image_map_messages_2 = ImagemapSendMessage(
+                base_url='https://i.imgur.com/cLQYwCp.png',
+                alt_text='commercial contest score',
+                base_size=BaseSize(width=1040, height=1040),
+                actions=[
+                    #just for full size image
+                    MessageImagemapAction(
+                        text='commercial contest score ',
+                        area=ImagemapArea(
+                            x=1034, y=1034, width=1, height=1
+                        )
+                    )
+                ]
+            )      
+            image_map_messages_3 = ImagemapSendMessage(
+                base_url='https://i.imgur.com/XLQezjJ.png',
+                alt_text='commercial contest question',
+                base_size=BaseSize(width=1040, height=1040),
+                actions=[
+                    MessageImagemapAction(
+                        text='ccq 1&2',
+                        area=ImagemapArea(
+                            x=194, y=317, width=664, height=143
+                        )
+                    ),
+                    MessageImagemapAction(
+                        text='ccq 3&4',
+                        area=ImagemapArea(
+                            x=194, y=551, width=664, height=143
+                        )
+                    ),                  
+                    MessageImagemapAction(
+                        text='ccq 5&6',
+                        area=ImagemapArea(
+                            x=194, y=783, width=664, height=143
+                        )
+                    )
+                ]
+            )                  
+            line_bot_api.reply_message(event.reply_token,[image_map_messages_1,image_map_messages_2,image_map_messages_3])
+            return 0 
+        ##### ccq team question#####    
+        if event.message.text == "ccq 1&2":
+            image_map_messages = ImagemapSendMessage(
+                base_url='https://i.imgur.com/f4hGB7S.png',
+                alt_text='ccq 1&2',
+                base_size=BaseSize(width=1040, height=1040),
+                actions=[
+                    #just for full size image
+                    MessageImagemapAction(
+                        text='ccq 1&2 ',
+                        area=ImagemapArea(
+                            x=1034, y=1034, width=1, height=1
+                        )
+                    )
+                ]
+            )
+            line_bot_api.reply_message(event.reply_token,image_map_messages)
+            return 0
+        if event.message.text == "ccq 3&4":
+            image_map_messages = ImagemapSendMessage(
+                base_url='https://i.mgur.com/GVHJuHx.png',
+                alt_text='ccq 3&4',
+                base_size=BaseSize(width=1040, height=1040),
+                actions=[
+                    #just for full size image
+                    MessageImagemapAction(
+                        text='ccq 3&4 ',
+                        area=ImagemapArea(
+                            x=1034, y=1034, width=1, height=1
+                        )
+                    )
+                ]
+            )
+            line_bot_api.reply_message(event.reply_token,image_map_messages)
+            return 0
+        if event.message.text == "ccq 5&6":
+            image_map_messages = ImagemapSendMessage(
+                base_url='https://i.imgur.com/PARktV8.png',
+                alt_text='ccq 5&6',
+                base_size=BaseSize(width=1040, height=1040),
+                actions=[
+                    #just for full size image
+                    MessageImagemapAction(
+                        text='ccq 5&6 ',
+                        area=ImagemapArea(
+                            x=1034, y=1034, width=1, height=1
+                        )
+                    )
+                ]
+            )
+            line_bot_api.reply_message(event.reply_token,image_map_messages)
             return 0
 
 ###############  ###############
