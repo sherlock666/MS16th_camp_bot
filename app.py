@@ -113,7 +113,7 @@ def handle_message(event):
     print("event.source.type:", event.source.type)
     msg = get_answer(event.message.text)
     if msg == "No good match found in KB." :
-        if event.message.text == "開始玩" or event.message.text == "功能表":
+        if event.message.text == "開始玩" or event.message.text == "功能表" or event.message.text == "最新消息" :
             image_map_messages = ImagemapSendMessage(
                 base_url='https://i.imgur.com/DBRnv6d.png',
                 alt_text='error 404 not found~',
