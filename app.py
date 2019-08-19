@@ -1049,7 +1049,7 @@ def handle_message(event):
             return 0
         if event.message.text == "ccq 3&4":
             image_map_messages = ImagemapSendMessage(
-                base_url='https://i.mgur.com/GVHJuHx.png',
+                base_url='https://i.imgur.com/GVHJuHx.png',
                 alt_text='ccq 3&4',
                 base_size=BaseSize(width=1040, height=1040),
                 actions=[
