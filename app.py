@@ -114,6 +114,23 @@ def handle_message(event):
     msg = get_answer(event.message.text)
     if msg == "No good match found in KB." :
         if event.message.text == "開始玩" or event.message.text == "功能表":
+            image_map_messages = ImagemapSendMessage(
+                base_url='https://i.imgur.com/DBRnv6d.png',
+                alt_text='error 404 not found~',
+                base_size=BaseSize(width=1040, height=1040),
+                actions=[
+                    #just for full size image
+                    MessageImagemapAction(
+                        text='error 404 not found~ ',
+                        area=ImagemapArea(
+                            x=1034, y=1034, width=1, height=1
+                        )
+                    )
+                ]
+            )
+            line_bot_api.reply_message(event.reply_token,image_map_messages)
+            return 0  
+            '''
             student_program="\n\n*****實習計畫*****\n新聞\n電影\n遊戲資訊\n看廢文\n圖片(施工中)"
             tc_program="\n\n*****提攜專區*****\n施工中"
             association_program="\n\n*****協會專區*****\n施工中"
@@ -128,6 +145,8 @@ def handle_message(event):
                 event.reply_token,
                 TextSendMessage(text=content))
             return 0
+            '''
+
 ######## 客製功能區 ########       
         if event.message.text == "aaa" :
             content = "哈囉"
@@ -243,56 +262,56 @@ def handle_message(event):
                     MessageImagemapAction(
                         text='行囊準備',
                         area=ImagemapArea(
-                            x=0, y=119, width=535, height=135
+                            x=0, y=136, width=535, height=104
                         )
                     ),
                     #Right 1
                     MessageImagemapAction(
                         text='遠征行程',
                         area=ImagemapArea(
-                            x=533, y=119, width=507, height=134
+                            x=533, y=136, width=507, height=104
                         )
                     ),
                     #Left 2
                     MessageImagemapAction(
                         text='營地駐紮',
                         area=ImagemapArea(
-                            x=0, y=252, width=535, height=145
+                            x=0, y=282, width=535, height=104
                         )
                     ),
                     #Right 2
                     MessageImagemapAction(
                         text='夥伴相認',
                         area=ImagemapArea(
-                            x=534, y=251, width=506, height=146
+                            x=534, y=282, width=507, height=104
                         )
                     ),
                     #Left 3
                     MessageImagemapAction(
                         text='戰區概況',
                         area=ImagemapArea(
-                            x=0, y=395, width=535, height=135
+                            x=0, y=409, width=535, height=104
                         )
                     ),
                     #Right 3
                     MessageImagemapAction(
                         text='RPG1',
                         area=ImagemapArea(
-                            x=533, y=395, width=507, height=134
+                            x=533, y=409, width=507, height=104
                         )
                     ),
                     #Left 4   
                     MessageImagemapAction(
                         text='青金石戰役',
                         area=ImagemapArea(
-                            x=0, y=528, width=535, height=151
+                            x=0, y=556, width=535, height=104
                         )
                     ),
                     #Right 4                                                          
                     MessageImagemapAction(
                         text='紙上談兵',
                         area=ImagemapArea(
-                            x=533, y=528, width=505, height=151
+                            x=533, y=556, width=507, height=104
                         )
                     )
                 ]
