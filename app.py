@@ -107,8 +107,9 @@ def get_answer(message_text):
 @handler.add(MessageEvent, message=TextMessage)
 
 def handle_message(event):
+    profile = line_bot_api.get_profile(event.source.user_id)
     print("event.reply_token:", event.reply_token)
-    print("event.source.user_name:", line_bot_api.get_profile(event.source.user_id))
+    print("event.source.user_name:", profile.display_name)
     print("event.source.user_id:", event.source.user_id)
     print("event.message.text:", event.message.text)
     print("event.source.type:", event.source.type)
