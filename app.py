@@ -108,6 +108,7 @@ def get_answer(message_text):
 
 def handle_message(event):
     print("event.reply_token:", event.reply_token)
+    print("event.source.user_name:", line_bot_api.get_profile(event.source.user_id))
     print("event.source.user_id:", event.source.user_id)
     print("event.message.text:", event.message.text)
     print("event.source.type:", event.source.type)
