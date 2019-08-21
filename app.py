@@ -348,7 +348,7 @@ def handle_message(event):
 ############### 遠征行程Menu ###############
         if event.message.text == "遠征行程":
             image_map_messages_1 = ImagemapSendMessage(
-                base_url='https://i.imgur.com/AC2ISii.png',
+                base_url='https://i.imgur.com/LZxLQdQ.png',
                 alt_text='day 1',
                 base_size=BaseSize(width=1040, height=1040),
                 actions=[
@@ -362,7 +362,7 @@ def handle_message(event):
                 ]
             )            
             image_map_messages_2 = ImagemapSendMessage(
-                base_url='https://i.imgur.com/oVg1yiE.png',
+                base_url='https://i.imgur.com/FE43frj.png',
                 alt_text='day 2',
                 base_size=BaseSize(width=1040, height=1040),
                 actions=[
@@ -573,7 +573,7 @@ def handle_message(event):
 
         if event.message.text == "夥伴相認-第六組":
             image_map_messages = ImagemapSendMessage(
-                base_url='https:/i.imgur.com/3IyMawy.png',
+                base_url='https://i.imgur.com/3IyMawy.png',
                 alt_text='team 6',
                 base_size=BaseSize(width=1040, height=1040),
                 actions=[
@@ -1118,6 +1118,8 @@ def handle_message(event):
             )
             line_bot_api.reply_message(event.reply_token,image_map_messages)
             return 0
+
+############### 叢林盛典 ###############
 
 ###############  ###############
 
