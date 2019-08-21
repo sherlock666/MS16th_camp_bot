@@ -254,7 +254,7 @@ def handle_message(event):
 
         if event.message.text == "領袖營":
             image_map_messages = ImagemapSendMessage(
-                base_url='https://i.imgur.com/YGOBDKj.png',
+                base_url='https://i.imgur.com/OVA6PIl.png',
                 alt_text='領袖營攻略手冊',
                 base_size=BaseSize(width=1040, height=1040),
                 actions=[
@@ -262,58 +262,65 @@ def handle_message(event):
                     MessageImagemapAction(
                         text='行囊準備',
                         area=ImagemapArea(
-                            x=0, y=128, width=535, height=116
+                            x=0, y=132, width=511, height=108
                         )
                     ),
                     #Right 1
                     MessageImagemapAction(
                         text='遠征行程',
                         area=ImagemapArea(
-                            x=533, y=128, width=535, height=116
+                            x=539, y=132, width=501, height=108
                         )
                     ),
                     #Left 2
                     MessageImagemapAction(
                         text='營地駐紮',
                         area=ImagemapArea(
-                            x=0, y=272, width=535, height=117
+                            x=0, y=257, width=511, height=108
                         )
                     ),
                     #Right 2
                     MessageImagemapAction(
                         text='夥伴相認',
                         area=ImagemapArea(
-                            x=533, y=272, width=535, height=117
+                            x=539, y=257, width=501, height=108
                         )
                     ),
                     #Left 3
                     MessageImagemapAction(
                         text='戰區概況',
                         area=ImagemapArea(
-                            x=0, y=407, width=535, height=117
+                            x=0, y=390, width=511, height=108
                         )
                     ),
                     #Right 3
                     MessageImagemapAction(
-                        text='RPG1',
+                        text='黎明前夕',
                         area=ImagemapArea(
-                            x=533, y=407, width=535, height=117
+                            x=539, y=391, width=501, height=108
                         )
                     ),
                     #Left 4   
                     MessageImagemapAction(
                         text='青金石戰役',
                         area=ImagemapArea(
-                            x=0, y=548, width=537, height=117
+                            x=0, y=523, width=511, height=108
                         )
                     ),
                     #Right 4                                                          
                     MessageImagemapAction(
                         text='商業競賽',
                         area=ImagemapArea(
-                            x=533, y=548, width=537, height=117
+                            x=539, y=523, width=501, height=108
                         )
-                    )
+                    ),
+                    #bottom middle                                                          
+                    MessageImagemapAction(
+                        text='叢林盛典',
+                        area=ImagemapArea(
+                            x=332, y=658, width=404, height=102
+                        )
+                    )                    
                 ]
             )
             line_bot_api.reply_message(event.reply_token,image_map_messages)
@@ -321,11 +328,21 @@ def handle_message(event):
 
 ############### 行囊準備Menu ###############
         if event.message.text == "行囊準備":
-            image_message = ImageSendMessage(
-                original_content_url='https://i.imgur.com/zBXhDLK.png',
-                preview_image_url='https://i.imgur.com/zBXhDLK.png'
-            )
-            line_bot_api.reply_message(event.reply_token, image_message)
+            image_map_messages = ImagemapSendMessage(
+                base_url='https://i.imgur.com/0G695Fa.png',
+                alt_text='prepare list',
+                base_size=BaseSize(width=1040, height=1040),
+                actions=[
+                    #just for full size image
+                    MessageImagemapAction(
+                        text='prepare list ',
+                        area=ImagemapArea(
+                            x=1034, y=1034, width=1, height=1
+                        )
+                    )
+                ]
+            )                                  
+            line_bot_api.reply_message(event.reply_token, image_map_messages)
             return 0
 
 ############### 遠征行程Menu ###############
@@ -575,7 +592,7 @@ def handle_message(event):
 ############### 戰區概況Menu ###############
         if event.message.text == "戰區概況":
             image_map_messages = ImagemapSendMessage(
-                base_url='https://i.imgur.com/htJaQlq.png',
+                base_url='https://i.imgur.com/nFFFW3q.png',
                 alt_text='RPG MAP',
                 base_size=BaseSize(width=1040, height=1040),
                 actions=[
@@ -583,74 +600,74 @@ def handle_message(event):
                     MessageImagemapAction(
                         text='rpg1 1-1',
                         area=ImagemapArea(
-                            x=878, y=12, width=155, height=67
+                            x=885, y=9, width=139, height=65
                         )
                     ),
                     MessageImagemapAction(
                         text='rpg1 1-2',
                         area=ImagemapArea(
-                            x=878, y=100, width=155, height=67
+                            x=885, y=94, width=139, height=65
                         )
                     ),
                     MessageImagemapAction(
                         text='rpg1 2-1',
                         area=ImagemapArea(
-                            x=878, y=185, width=155, height=67
+                            x=885, y=180, width=139, height=65
                         )
                     ),
                     MessageImagemapAction(
                         text='rpg1 2-2',
                         area=ImagemapArea(
-                            x=878, y=271, width=155, height=67
+                            x=885, y=267, width=139, height=65
                         )
                     ),
                     MessageImagemapAction(
                         text='rpg1 2-4',
                         area=ImagemapArea(
-                            x=878, y=358, width=155, height=67
+                            x=885, y=354, width=139, height=65
                         )
                     ),
                     MessageImagemapAction(
                         text='rpg1 3',
                         area=ImagemapArea(
-                            x=878, y=444, width=155, height=67
+                            x=885, y=440, width=139, height=65
                         )
                     ),
                     MessageImagemapAction(
                         text='rpg1 5',
                         area=ImagemapArea(
-                            x=878, y=531, width=155, height=67
+                            x=885, y=526, width=139, height=65
                         )
                     ),
                     ###### rpg2 ######
                     MessageImagemapAction(
                         text='rpg2 1',
                         area=ImagemapArea(
-                            x=878, y=617, width=155, height=67
+                            x=885, y=611, width=139, height=65
                         )
                     ),
                     MessageImagemapAction(
                         text='rpg2 2',
                         area=ImagemapArea(
-                            x=878, y=703, width=155, height=67
+                            x=885, y=699, width=139, height=65
                         )
                     ),
                     MessageImagemapAction(
                         text='rpg2 3',
                         area=ImagemapArea(
-                            x=878, y=790, width=155, height=67
+                            x=885, y=785, width=139, height=65
                         )
                     ),
                     MessageImagemapAction(
                         text='rpg2 4',
                         area=ImagemapArea(
-                            x=878, y=876, width=155, height=67
+                            x=885, y=872, width=139, height=65
                         )
                     ),
                     MessageImagemapAction(
                         text='rpg2 5',
                         area=ImagemapArea(
-                            x=878, y=963, width=155, height=67
+                            x=885, y=957, width=139, height=65
                         )
                     )
                 ]
@@ -878,45 +895,65 @@ def handle_message(event):
 
 
 ############### RPG1Menu ###############
-        if event.message.text == "RPG1":
-            image_map_messages_1 = ImagemapSendMessage(
-                base_url='https://i.imgur.com/0QCjZsq.png',
-                alt_text='RPG!Menu',
+        if event.message.text == "黎明前夕":
+            image_map_messages = ImagemapSendMessage(
+                base_url='https://i.imgur.com/hBmnbhA.png',
+                alt_text='RPG1 Menu',
                 base_size=BaseSize(width=1040, height=1040),
                 actions=[
                     #Left 1
                     MessageImagemapAction(
-                        text='夥伴相認-第一組',
+                        text='rpg1 1-1',
                         area=ImagemapArea(
-                            x=166, y=207, width=315, height=115
+                            x=94, y=234, width=384, height=125
+                        )
+                    ),
+                    #Right 1
+                    MessageImagemapAction(
+                        text='rpg1 1-2',
+                        area=ImagemapArea(
+                            x=589, y=234, width=383, height=125
+                        )
+                    ),
+                    #Left 2
+                    MessageImagemapAction(
+                        text='rpg1 2-1',
+                        area=ImagemapArea(
+                            x=95, y=430, width=383, height=123
+                        )
+                    ),
+                    #Right 2
+                    MessageImagemapAction(
+                        text='rpg1 2-2',
+                        area=ImagemapArea(
+                            x=588, y=427, width=381, height=127
+                        )
+                    ),
+                    #Left 3
+                    MessageImagemapAction(
+                        text='rpg1 2-4',
+                        area=ImagemapArea(
+                            x=96, y=624, width=383, height=125
                         )
                     ),
                     #Right 3
                     MessageImagemapAction(
-                        text='夥伴相認-第六組',
+                        text='rpg1 3',
                         area=ImagemapArea(
-                            x=564, y=564, width=313, height=115
+                            x=588, y=623, width=384, height=126
                         )
-                    )
-                ]
-            )
-            image_map_messages_2 = ImagemapSendMessage(
-                base_url='https://i.imgur.com/GapQdz6.png',
-                alt_text='rpg2 time',
-                base_size=BaseSize(width=1040, height=1040),
-                actions=[
-                    #just for full size image
+                    ),
+                    #Middle Bottom
                     MessageImagemapAction(
-                        text='rpg2 time ',
+                        text='rpg1 5',
                         area=ImagemapArea(
-                            x=1034, y=1034, width=1, height=1
+                            x=363, y=819, width=3835, height=124
                         )
-                    )
+                    ),                    
                 ]
             )
-            line_bot_api.reply_message(event.reply_token,[image_map_messages_1,image_map_messages_2])
-            return 0          
-
+            line_bot_api.reply_message(event.reply_token,image_map_messages)
+            return 0        
 ############### 青金石戰役Menu ###############
         if event.message.text == "青金石戰役":
             image_map_messages_1 = ImagemapSendMessage(
