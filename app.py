@@ -1019,7 +1019,7 @@ def handle_message(event):
                     MessageImagemapAction(
                         text='rpg1 item-get',
                         area=ImagemapArea(
-                            x=95, y=819, width=383, height=124
+                            x=586, y=811, width=391, height=136
                         )
                     ),                                         
                 ]
