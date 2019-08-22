@@ -283,7 +283,7 @@ def handle_message(event):
                     ),
                     #Right 2
                     MessageImagemapAction(
-                        text='夥伴相認',
+                        text='夥伴相認?',
                         area=ImagemapArea(
                             x=539, y=257, width=501, height=108
                         )
@@ -318,7 +318,7 @@ def handle_message(event):
                     ),
                     #bottom middle                                                          
                     MessageImagemapAction(
-                        text='叢林盛典',
+                        text='叢林盛典?',
                         area=ImagemapArea(
                             x=332, y=658, width=404, height=102
                         )
@@ -383,7 +383,7 @@ def handle_message(event):
 ############### 營地駐紮Menu ###############
         if event.message.text == "營地駐紮":
             image_map_messages_1 = ImagemapSendMessage(
-                base_url='https://i.imgur.com/gDNXswe.png',
+                base_url='https://i.imgur.com/Mq3riSQ.png',
                 alt_text='roomtype 1',
                 base_size=BaseSize(width=1040, height=1040),
                 actions=[
@@ -397,7 +397,7 @@ def handle_message(event):
                 ]
             )
             image_map_messages_2 = ImagemapSendMessage(
-                base_url='https://i.imgur.com/RXjZW1X.png',
+                base_url='https://i.imgur.com/i0V2emp.png',
                 alt_text='roomtype 2',
                 base_size=BaseSize(width=1040, height=1040),
                 actions=[
@@ -411,7 +411,7 @@ def handle_message(event):
                 ]
             )
             image_map_messages_3 = ImagemapSendMessage(
-                base_url='https://i.imgur.com/B9VZ0Y1.png',
+                base_url='https://i.imgur.com/gVFUtzy.png',
                 alt_text='roomtype 3',
                 base_size=BaseSize(width=1040, height=1040),
                 actions=[
@@ -428,6 +428,24 @@ def handle_message(event):
             return 0
 
 ############### 夥伴相認Menu ###############
+        if event.message.text == "夥伴相認?":
+            image_map_messages = ImagemapSendMessage(
+                base_url='https://i.imgur.com/iQtkUMO.png',
+                alt_text='team ?',
+                base_size=BaseSize(width=1040, height=1040),
+                actions=[
+                    #just for full size image
+                    MessageImagemapAction(
+                        text='team ? ',
+                        area=ImagemapArea(
+                            x=1034, y=1034, width=1, height=1
+                        )
+                    )
+                ]
+            )
+            line_bot_api.reply_message(event.reply_token,image_map_messages)
+            return 0
+
         if event.message.text == "夥伴相認":
             image_map_messages = ImagemapSendMessage(
                 base_url='https://i.imgur.com/irvh6C7.png',
@@ -803,6 +821,51 @@ def handle_message(event):
             line_bot_api.reply_message(event.reply_token,image_map_messages)
             return 0
 
+        if event.message.text == "rpg1 item-get":
+            image_map_messages_item1 = ImagemapSendMessage(
+                base_url='https://i.imgur.com/xP1yYZp.png',
+                alt_text='rpg1 item1',
+                base_size=BaseSize(width=1040, height=1040),
+                actions=[
+                    #just for full size image
+                    MessageImagemapAction(
+                        text='rpg1 item1 ',
+                        area=ImagemapArea(
+                            x=1034, y=1034, width=1, height=1
+                        )
+                    )
+                ]
+            )
+            image_map_messages_item2 = ImagemapSendMessage(
+                base_url='https://i.imgur.com/2nFAM2X.png',
+                alt_text='rpg1 item2',
+                base_size=BaseSize(width=1040, height=1040),
+                actions=[
+                    #just for full size image
+                    MessageImagemapAction(
+                        text='rpg1 item2 ',
+                        area=ImagemapArea(
+                            x=1034, y=1034, width=1, height=1
+                        )
+                    )
+                ]
+            )
+            image_map_messages_item3 = ImagemapSendMessage(
+                base_url='https://i.imgur.com/6OjmQJk.png',
+                alt_text='rpg1 item3',
+                base_size=BaseSize(width=1040, height=1040),
+                actions=[
+                    #just for full size image
+                    MessageImagemapAction(
+                        text='rpg1 item3 ',
+                        area=ImagemapArea(
+                            x=1034, y=1034, width=1, height=1
+                        )
+                    )
+                ]
+            )            
+            line_bot_api.reply_message(event.reply_token,[image_map_messages_item1,image_map_messages_item2,image_map_messages_item3])
+            return 0
 ############### rpg2  ###############
         if event.message.text == "rpg2 1":
             image_map_messages = ImagemapSendMessage(
@@ -899,7 +962,7 @@ def handle_message(event):
 ############### RPG1Menu ###############
         if event.message.text == "黎明前夕":
             image_map_messages = ImagemapSendMessage(
-                base_url='https://i.imgur.com/hBmnbhA.png',
+                base_url='https://i.imgur.com/ovysB7o.png',
                 alt_text='RPG1 Menu',
                 base_size=BaseSize(width=1040, height=1040),
                 actions=[
@@ -945,13 +1008,20 @@ def handle_message(event):
                             x=588, y=623, width=384, height=126
                         )
                     ),
-                    #Middle Bottom
+                    #Left 4
                     MessageImagemapAction(
                         text='rpg1 5',
                         area=ImagemapArea(
-                            x=363, y=819, width=3835, height=124
+                            x=95, y=819, width=383, height=124
                         )
-                    ),                    
+                    ),
+                    #Right 4
+                    MessageImagemapAction(
+                        text='rpg1 item-get',
+                        area=ImagemapArea(
+                            x=95, y=819, width=383, height=124
+                        )
+                    ),                                         
                 ]
             )
             line_bot_api.reply_message(event.reply_token,image_map_messages)
@@ -1122,7 +1192,41 @@ def handle_message(event):
             return 0
 
 ############### 叢林盛典 ###############
+        if event.message.text == "叢林盛典?":
+            image_map_messages = ImagemapSendMessage(
+                base_url='https://i.imgur.com/eZXgNJ9.png',
+                alt_text='party night?',
+                base_size=BaseSize(width=1040, height=1040),
+                actions=[
+                    #just for full size image
+                    MessageImagemapAction(
+                        text='party night? ',
+                        area=ImagemapArea(
+                            x=1034, y=1034, width=1, height=1
+                        )
+                    )
+                ]
+            )
+            line_bot_api.reply_message(event.reply_token,image_map_messages)
+            return 0
 
+        if event.message.text == "叢林盛典":
+            image_map_messages = ImagemapSendMessage(
+                base_url='https://i.imgur.com/eZXgNJ9.png',
+                alt_text='party night?',
+                base_size=BaseSize(width=1040, height=1040),
+                actions=[
+                    #just for full size image
+                    MessageImagemapAction(
+                        text='party night? ',
+                        area=ImagemapArea(
+                            x=1034, y=1034, width=1, height=1
+                        )
+                    )
+                ]
+            )
+            line_bot_api.reply_message(event.reply_token,image_map_messages)
+            return 0            
 ###############  ###############
 
 ######## 客製功能區 ########                
