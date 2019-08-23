@@ -350,7 +350,7 @@ def handle_message(event):
 ############### 遠征行程Menu ###############
         if event.message.text == "遠征行程":
             image_map_messages_1 = ImagemapSendMessage(
-                base_url='https://i.imgur.com/LZxLQdQ.png',
+                base_url='https://i.imgur.com/olJ8BrL.png',
                 alt_text='day 1',
                 base_size=BaseSize(width=1040, height=1040),
                 actions=[
