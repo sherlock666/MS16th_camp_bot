@@ -464,7 +464,7 @@ def handle_message(event):
             return 0
 
     ##########***圖片***#########  
-        if text in keywords_yande_re:
+        if msg in keywords_yande_re:
             num=random.randint(100000,500000)
             yande_link=yande_res(num=int(num))
             image_message = ImageSendMessage(
