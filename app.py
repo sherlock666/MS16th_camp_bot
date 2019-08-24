@@ -325,7 +325,7 @@ def handle_message(event):
         keywords_test_c = ['喵?','喵喵?']
         content_test_c = "喵~~ (////)"
         
-        if text in keywords_test_a:
+        if msg in keywords_test_a:
             content = content_test_a
             line_bot_api.reply_message(
                 event.reply_token,
