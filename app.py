@@ -39,7 +39,44 @@ from linebot.models import (
 )
 
 ##### Function Import #####
+import subprocess
+
+from tools.apple_news import apple_newss
+apple_newss_content0, apple_newss_content1, apple_newss_content2 = apple_newss()
+
+''' ###bug
+from tools.gfl_article import gfl_articles
+gfl_articles_content0, gfl_articles_content1, gfl_articles_content2, gfl_articles_content3, gfl_articles_content4 = gfl_articles()
+
+
+from tools.tos_article import tos_articles
+tos_articles_content0, tos_articles_content1, tos_articles_content2, tos_articles_content3, tos_articles_content4 = tos_articles()
+
+from tools.fgo_article import fgo_articles
+fgo_articles_content0, fgo_articles_content1, fgo_articles_content2, fgo_articles_content3, fgo_articles_content4 = fgo_articles()
+'''
+
 from tools.weather import weather
+
+from tools.eyny_movie import eyny_movie
+
+from tools.ptt_gossiping import ptt_gossiping
+from tools.ptt_beauty import ptt_beauty
+from tools.ptt_hot import ptt_hot
+
+from tools.exchange_rate import exchange_rates
+
+#for exchange rate calculation but crash
+#content_ratecash,content_ratespot = exchange_rates(L)
+
+
+from tools.movie import movie
+from tools.yande_re import yande_res
+
+from tools.panx import panx
+from tools.technews import technews
+
+from imgurpython import ImgurClient
 
 ##### Main #####
 
@@ -53,7 +90,14 @@ line_bot_api = LineBotApi(config['line_bot']['Channel_Access_Token'])
 handler = WebhookHandler(config['line_bot']['Channel_Secret'])
 static_tmp_path = os.path.join(os.path.dirname(__file__), 'static')
 
+client_id = config['imgur_api']['Client_ID']
+client_secret = config['imgur_api']['Client_Secret']
+album_id = config['imgur_api']['Album_ID']
+access_token = config['imgur_api']['Access_token']
+refresh_token = config['imgur_api']['Refresh_token']
+API_Get_Image = config['other_api']['API_Get_Image']
 
+static_tmp_path = os.path.join(os.path.dirname(__file__), 'static')
 
 
 
@@ -251,6 +295,265 @@ def handle_message(event):
             content = weather(L=21)
             line_bot_api.reply_message(event.reply_token,TextSendMessage(text=content))
             return 0
+
+############### 功能表功能 ###############
+    ##########*****功能字庫區*****#########    
+     
+        keywords_cm_apple_news = ['!蘋果即時新聞','!蘋果即時','！蘋果即時新聞','！蘋果即時','蘋果即時新聞','蘋果即時']
+        keywords_technews = ['!科技新報','！科技新報']
+        keywords_panx = ['!PanX泛科技','！PanX泛科技']
+        keywords_movie = ['!近期上映電影','！近期上映電影']
+        keywords_eyny_movie = ['!eyny','！eyny']
+        keywords_gfl_articles = ['!少女前線','！少女前線']
+        keywords_tos_articles = ['!神魔之塔','！神魔之塔']
+        keywords_fgo_articles = ['!fgo','！fgo']
+        keywords_ptt_hot = ['!近期熱門廢文','！近期熱門廢文']
+        keywords_ptt_gossiping = ['!即時廢文','！即時廢文']
+        keywords_yande_re = ['!yande.re','!抽圖','！yande.re','！抽圖','抽圖','抽']
+        keywords_ptt_beauty = ['!PTT表特版','！PTT表特版']
+        keywords_imgur_beauty = ['!imgur正妹','！imgur正妹']
+       # keywords_fgo_articles = ['!fgo']
+       # keywords_fgo_articles = ['!fgo']
+        
+    ##########*****廢話字庫區*****#########      
+        keywords_test_a = ['喵喵喵','測試測試']
+        content_test_a = "我是小喵喵"
+     
+        keywords_test_b = ['喵~','喵喵~']
+        content_test_b = "喵~喵~"
+        
+        keywords_test_c = ['喵?','喵喵?']
+        content_test_c = "喵~~ (////)"
+        
+        if text in keywords_test_a:
+            content = content_test_a
+            line_bot_api.reply_message(
+                event.reply_token,
+                TextSendMessage(text=content))
+            return 0
+
+
+
+    ##########*****休閒娛樂*****#########
+
+    ##########***新聞***#########
+
+        if text in keywords_cm_apple_news:
+            content0 = apple_newss_content0
+            content1 = apple_newss_content1
+            content2 = apple_newss_content2
+            print (content0)
+            print (content1)
+            print (content2)
+            a=TextSendMessage(text=content0)
+            b=TextSendMessage(text=content1)
+            c=TextSendMessage(text=content2)
+            reply_data=[a,b,c]
+            line_bot_api.reply_message(
+                event.reply_token,
+                reply_data)
+            return 0
+
+        if text in keywords_technews:
+            content = technews()
+            line_bot_api.reply_message(
+                event.reply_token,
+                TextSendMessage(text=content))
+            return 0
+
+        if text in keywords_panx:
+            content = panx()
+            line_bot_api.reply_message(
+                event.reply_token,
+                TextSendMessage(text=content))
+            return 0
+
+    ##########***電影***#########
+        if text in keywords_movie:
+            content = movie()
+            line_bot_api.reply_message(
+                event.reply_token,
+                TextSendMessage(text=content))
+            return 0
+        if text in keywords_eyny_movie:
+            content = eyny_movie()
+            line_bot_api.reply_message(
+                event.reply_token,
+                TextSendMessage(text=content))
+            return 0
+
+    ##########***遊戲資訊***#########
+        if text in keywords_gfl_articles:
+            content0 = gfl_articles_content0
+            content1 = gfl_articles_content1
+            content2 = gfl_articles_content2
+            content3 = gfl_articles_content3
+            content4 = gfl_articles_content4
+            print (content0)
+            print (content1)
+            print (content2)
+            print (content3)
+            print (content4)
+            a=TextSendMessage(text=content0)
+            b=TextSendMessage(text=content1)
+            c=TextSendMessage(text=content2)
+            d=TextSendMessage(text=content3)
+            e=TextSendMessage(text=content4)
+            reply_data=[a,b,c,d,e]
+            line_bot_api.reply_message(
+                event.reply_token,
+                reply_data)
+            return 0
+
+        if text in keywords_tos_articles:
+            content0 = tos_articles_content0
+            content1 = tos_articles_content1
+            content2 = tos_articles_content2
+            content3 = tos_articles_content3
+            content4 = tos_articles_content4
+            print (content0)
+            print (content1)
+            print (content2)
+            print (content3)
+            print (content4)
+            a=TextSendMessage(text=content0)
+            b=TextSendMessage(text=content1)
+            c=TextSendMessage(text=content2)
+            d=TextSendMessage(text=content3)
+            e=TextSendMessage(text=content4)
+            reply_data=[a,b,c,d,e]
+            line_bot_api.reply_message(
+                event.reply_token,
+                reply_data)
+            return 0
+
+        if text in keywords_fgo_articles:
+            content0 = fgo_articles_content0
+            content1 = fgo_articles_content1
+            content2 = fgo_articles_content2
+            content3 = fgo_articles_content3
+            content4 = fgo_articles_content4
+            print (content0)
+            print (content1)
+            print (content2)
+            print (content3)
+            print (content4)
+            a=TextSendMessage(text=content0)
+            b=TextSendMessage(text=content1)
+            c=TextSendMessage(text=content2)
+            d=TextSendMessage(text=content3)
+            e=TextSendMessage(text=content4)
+            reply_data=[a,b,c,d,e]
+            line_bot_api.reply_message(
+                event.reply_token,
+                reply_data)
+            return 0
+
+    ##########***看廢文***#########        
+        if text in keywords_ptt_hot:
+            content = ptt_hot()
+            line_bot_api.reply_message(
+                event.reply_token,
+                TextSendMessage(text=content))
+            return 0
+        if text in keywords_ptt_gossiping:
+            content = ptt_gossiping()
+            line_bot_api.reply_message(
+                event.reply_token,
+                TextSendMessage(text=content))
+            return 0
+
+    ##########***圖片***#########  
+        if text in keywords_yande_re:
+            num=random.randint(100000,500000)
+            yande_link=yande_res(num=int(num))
+            image_message = ImageSendMessage(
+                original_content_url=yande_link,
+                preview_image_url=yande_link
+            )        
+            line_bot_api.reply_message(
+                event.reply_token, image_message)
+            return 0
+
+        if text in keywords_ptt_beauty:
+            content = ptt_beauty()
+            line_bot_api.reply_message(
+                event.reply_token,
+                TextSendMessage(text=content))
+            return 0
+        if text in keywords_imgur_beauty:
+            client = ImgurClient(client_id, client_secret)
+            images = client.get_album_images(album_id)
+            index = random.randint(0, len(images) - 1)
+            url = images[index].link
+            image_message = ImageSendMessage(
+                original_content_url=url,
+                preview_image_url=url
+            )
+            line_bot_api.reply_message(
+                event.reply_token, image_message)
+            return 0
+        if event.message.text == "!抽抽樂":
+            image = requests.get(API_Get_Image)
+            url = image.json().get('Url')
+            image_message = ImageSendMessage(
+                original_content_url=url,
+                preview_image_url=url
+            )
+            line_bot_api.reply_message(
+                event.reply_token, image_message)
+            return 0
+
+    ##########***財經專區***#########  
+        if event.message.text == "!每日匯率":
+            res = requests.get("http://rate.bot.com.tw/xrt?Lang=zh-TW")
+            soup = BeautifulSoup(res.text,'html.parser')
+            dailydate=soup.select("span[class='time']")[0].text
+            content1 = "本匯率資訊取自 台灣銀行告牌匯率\n提供 台幣對:\n美金 日幣 人民幣 港幣\n英鎊 韓元 歐元\n僅供使用者參考 謝謝!!\n\n請直接輸入欲查詢幣別(例如: !日幣)\n"+"最新掛牌時間 : "+dailydate
+            line_bot_api.reply_message(
+                event.reply_token,
+                TextSendMessage(text=content1))
+
+        if event.message.text == "!美金":
+            content = exchange_rates(L=1)
+            print(content)
+            line_bot_api.reply_message(event.reply_token,TextSendMessage(text=content))
+            return 0
+
+        if event.message.text == "!日幣":
+            content = exchange_rates(L=15)
+            print(content)
+            line_bot_api.reply_message(event.reply_token,TextSendMessage(text=content))
+            return 0
+        if event.message.text == "!人民幣":
+            content = exchange_rates(L=37)
+            print(content)
+            line_bot_api.reply_message(event.reply_token,TextSendMessage(text=content))
+            return 0
+        if event.message.text == "!港幣":
+            content = exchange_rates(L=3)
+            print(content)
+            line_bot_api.reply_message(event.reply_token,TextSendMessage(text=content))
+            return 0
+        if event.message.text == "!英鎊":
+            content = exchange_rates(L=5)
+            print(content)
+            line_bot_api.reply_message(event.reply_token,TextSendMessage(text=content))
+            return 0
+        if event.message.text == "!韓元":
+            content = exchange_rates(L=31)
+            print(content)
+            line_bot_api.reply_message(event.reply_token,TextSendMessage(text=content))
+            return 0
+        if event.message.text == "!歐元":
+            content = exchange_rates(L=29)
+            print(content)
+            line_bot_api.reply_message(event.reply_token,TextSendMessage(text=content))
+            return 0     
+
+
+
+
 
 ############### 領袖營Menu ###############
 
@@ -1228,7 +1531,61 @@ def handle_message(event):
             line_bot_api.reply_message(event.reply_token,image_map_messages)
             return 0            
 ###############  ###############
+#################### 主目錄 #####################
+        if event.message.text == "!開始玩":
+            fun="\n\n*****休閒娛樂*****\n新聞\n電影\n遊戲資訊\n看廢文\n圖片(施工中)"
+            academic="\n\n*****學術專區*****\n施工中"
+            medical="\n\n*****醫療新知*****\n施工中"
+            financial="\n\n*****財經專區*****\n每日匯率"
+            diy="\n\n*****自製小品*****\n猜數字(施工中)"
+            other="\n\n*****其他功能*****\n天氣預報"
+            SelfReplyOnly="\n\n*****私聊限定*****\n!本區功能無法於群組使用!\n!請點選本帳號的聊天以使用!\n施工中"
+            content = ("請輸入功能指令:"+fun+academic+medical+financial+diy+SelfReplyOnly+other+"\n\n幫助")
+            line_bot_api.reply_message(
+                event.reply_token,
+                TextSendMessage(text=content))
+            return 0
+        if event.message.text == "!新聞":
+            content = "請選擇新聞類型:\n\n蘋果即時新聞\n科技新報\nPanX泛科技\n陸續增加...."
+            line_bot_api.reply_message(
+                event.reply_token,
+                TextSendMessage(text=content))
+            return 0
 
+        if event.message.text == "!電影":
+            content = "請選擇來源:\n\n近期上映電影\neyny\n陸續增加...."
+            line_bot_api.reply_message(
+                event.reply_token,
+                TextSendMessage(text=content))
+            return 0
+
+        if event.message.text == "!遊戲資訊":
+            content = "請選擇遊戲:\n\n神魔之塔\n少女前線\nfgo\n陸續增加...."
+            line_bot_api.reply_message(
+                event.reply_token,
+                TextSendMessage(text=content))
+            return 0
+
+        if event.message.text == "!看廢文":
+            content = "請選擇來源:\n\n近期熱門廢文\n即時廢文"
+            line_bot_api.reply_message(
+                event.reply_token,
+                TextSendMessage(text=content))
+            return 0
+
+        if event.message.text == "!圖片":
+            content = "請輸入功能指令:\n\n***動漫區(施工中)***\nyande.re (抓圖)\n\n***其他***\nPTT表特版 (近期大於 10 推的文章)\nimgur正妹(施工中) (imgur 正妹圖片)\n抽抽樂(施工中) (隨便來張正妹圖片)\n陸續增加...."
+            line_bot_api.reply_message(
+                event.reply_token,
+                TextSendMessage(text=content))
+            return 0
+
+        if event.message.text == "!猜數字":
+            content = "施工中~"
+            line_bot_api.reply_message(
+                event.reply_token,
+                TextSendMessage(text=content))
+            return 0
 ######## 客製功能區 ########                
     else:
         line_bot_api.reply_message(event.reply_token,TextSendMessage(text=msg))
