@@ -325,7 +325,7 @@ def handle_message(event):
         keywords_test_c = ['喵?','喵喵?']
         content_test_c = "喵~~ (////)"
         
-        if msg in keywords_test_a:
+        if event.message.text in keywords_test_a:
             content = content_test_a
             line_bot_api.reply_message(
                 event.reply_token,
@@ -338,7 +338,7 @@ def handle_message(event):
 
     ##########***新聞***#########
 
-        if msg in keywords_cm_apple_news:
+        if event.message.text in keywords_cm_apple_news:
             content0 = apple_newss_content0
             content1 = apple_newss_content1
             content2 = apple_newss_content2
@@ -354,14 +354,14 @@ def handle_message(event):
                 reply_data)
             return 0
 
-        if msg in keywords_technews:
+        if event.message.text in keywords_technews:
             content = technews()
             line_bot_api.reply_message(
                 event.reply_token,
                 TextSendMessage(text=content))
             return 0
 
-        if msg in keywords_panx:
+        if event.message.text in keywords_panx:
             content = panx()
             line_bot_api.reply_message(
                 event.reply_token,
@@ -450,13 +450,13 @@ def handle_message(event):
             return 0
 
     ##########***看廢文***#########        
-        if msg in keywords_ptt_hot:
+        if event.message.text  in keywords_ptt_hot:
             content = ptt_hot()
             line_bot_api.reply_message(
                 event.reply_token,
                 TextSendMessage(text=content))
             return 0
-        if msg in keywords_ptt_gossiping:
+        if event.message.text in keywords_ptt_gossiping:
             content = ptt_gossiping()
             line_bot_api.reply_message(
                 event.reply_token,
@@ -464,7 +464,7 @@ def handle_message(event):
             return 0
 
     ##########***圖片***#########  
-        if msg in keywords_yande_re:
+        if event.message.text in keywords_yande_re:
             num=random.randint(100000,500000)
             yande_link=yande_res(num=int(num))
             image_message = ImageSendMessage(
@@ -475,13 +475,13 @@ def handle_message(event):
                 event.reply_token, image_message)
             return 0
 
-        if msg in keywords_ptt_beauty:
+        if event.message.text in keywords_ptt_beauty:
             content = ptt_beauty()
             line_bot_api.reply_message(
                 event.reply_token,
                 TextSendMessage(text=content))
             return 0
-        if msg in keywords_imgur_beauty:
+        if event.message.text in keywords_imgur_beauty:
             client = ImgurClient(client_id, client_secret)
             images = client.get_album_images(album_id)
             index = random.randint(0, len(images) - 1)
