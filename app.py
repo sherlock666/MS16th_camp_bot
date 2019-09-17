@@ -1571,7 +1571,7 @@ def handle_message(event):
         return 0
 
     ######## 走秀流程 #########
-     if event.message.text == "party night process":
+    if event.message.text == "party night process":
         image_map_messages_1 = ImagemapSendMessage(
             base_url='https://i.imgur.com/PARktV8.png',
             alt_text='party night process 1',
