@@ -157,7 +157,7 @@ def handle_message(event):
     print("event.source.user_id:", event.source.user_id)
     print("event.message.text:", event.message.text)
     print("event.source.type:", event.source.type)
-    msg = get_answer(event.message.text)
+    ##msg = get_answer(event.message.text)
     if event.message.text == "開始玩" or event.message.text == "功能表" or event.message.text == "最新消息" :
         image_map_messages = ImagemapSendMessage(
             base_url='https://i.imgur.com/DBRnv6d.png',
